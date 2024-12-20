@@ -4,6 +4,7 @@
 #include <QMainWindow>
 #include "game.h"
 #include <QGraphicsScene>
+#include <QKeyEvent>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,6 +19,7 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+    void keyPressEvent(QKeyEvent *event) override;
 
 private slots:
 
@@ -45,5 +47,10 @@ private:
     };
     Game * game;
     QGraphicsScene * scene;
+
+public:
+    //virtual bool eventFilter(QObject *object, QEvent *event)override;
+signals:
+    void click_R();
 };
 #endif // MAINWINDOW_H
