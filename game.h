@@ -2,6 +2,7 @@
 #define GAME_H
 #include <QSharedData>
 #include <QGraphicsPixmapItem>
+#include "gameview.h"
 
 class Game : public QSharedData
 {

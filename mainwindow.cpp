@@ -11,6 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
     ui->stackedWidget->setCurrentIndex(0);
 
+
+
     //ui->graphicsView->setBackgroundBrush(QBrush(Qt::yellow));
 
     //ui->graphicsView->show();
@@ -38,6 +40,10 @@ void MainWindow::on_pushButton_NewGmae_clicked()
 void MainWindow::on_pushButton_clicked()
 {
     ui->stackedWidget->setCurrentIndex(ePages::p_start);
+
+    //delete game_graphic_view; //podmiana
+    //delete scene1;
+    //qDebug() << "game_graphic_view delete";
 }
 
 
@@ -76,6 +82,34 @@ void MainWindow::keyPressEvent(QKeyEvent *event)
 void MainWindow::on_pushButton_Settings_clicked()
 {
     ui->stackedWidget->setCurrentIndex(ePages::p_settings);
+
+    // game_graphic_view = new QGraphicsView(ui->pushButton->parentWidget()); //podmiana
+    // game_graphic_view->setBackgroundBrush(QBrush(Qt::blue));
+    // qDebug() << "game_graphic_view new";
+    // //ui->stackedWidget->show();
+    // //ui->stackedWidget->stackUnder(ui->pushButton_9);
+
+    // //ui->stackedWidget->insertWidget(ePages::p_settings,game_graphic_view);
+
+    // game_graphic_view->setSceneRect(-100,-100,400,500);
+    // game_graphic_view->move(000,000);
+    // //game_graphic_view->stackUnder(ui->pushButton_9);
+    // //game_graphic_view->Rect
+    // //game_graphic_view->setScene(scene);
+
+    // game = new Game();
+    // scene1 = new QGraphicsScene(game_graphic_view);
+    // //static QGraphicsRectItem rect = QGraphicsRectItem();
+    // //rect.setRect(0,0,100,100);
+    // scene1->addItem(game->pixitem_pecker);
+    // //QRectF rect = (QRectF(0, 0, 100, 1000));
+    // //scene1->addRect(rect);
+    // //scene1->setSceneRect(100,100,300,300);
+    // //scene1->setSceneRect(100,100,200,200);
+    // game_graphic_view->setScene(scene1);
+    // game_graphic_view->stackUnder(ui->pushButton_9);
+    // game_graphic_view->show();
+
 }
 
 
