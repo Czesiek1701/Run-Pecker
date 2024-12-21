@@ -30,7 +30,22 @@ void MainWindow::on_pushButton_NewGmae_clicked()
     ui->stackedWidget->setCurrentIndex(ePages::p_game);
     ui->pushButton_Play->setText("Play");
 
-    game = nullptr;
+    qDebug() << ui->stackedWidget->count();
+
+    gamePage = new GamePage(nullptr);
+    ui->stackedWidget->addWidget(gamePage);
+
+    qDebug() << ui->stackedWidget->count();
+    qDebug() << gamePage->parent();
+
+    //gamePage = ui->stackedWidget->currentWidget();
+
+    //gamePage-> = ui->stackedWidget->currentWidget();
+
+    //gamePage = ui->stackedWidget->currentWidget();
+
+    // game = new Game(ui->stackedWidget->currentWidget());
+    // game -> gameView ->stuckUnder(ui->pushButton_2);
     //scene = new QGraphicsScene(this);
     //game_graphic_view = ui->graphicsView;
     //ui->graphicsView->setBackgroundBrush(QBrush(Qt::gray));
@@ -120,27 +135,27 @@ void MainWindow::on_pushButton_Close_clicked()
 
 void MainWindow::on_pushButton_Play_clicked()
 {
-    if (game == nullptr)
+    // if (game == nullptr)
+    // {
+    //     game = new Game(ui->stackedWidget->currentWidget());
+    //     game -> gameView ->stuckUnder(ui->pushButton_2);
+    //     ui->pushButton_Play->setText("Pause");
+    // }
+    // else
+    // {
+    if (game->running==true)
     {
-        game = new Game(ui->stackedWidget->currentWidget());
-        game -> gameView ->stuckUnder(ui->pushButton_2);
-        ui->pushButton_Play->setText("Pause");
+        qDebug()<<"Game running";
+        game->pause();
+        ui->pushButton_Play->setText("Start");
     }
     else
     {
-        if (game->running==true)
-        {
-            qDebug()<<"Game running";
-            game->pause();
-            ui->pushButton_Play->setText("Start");
-        }
-        else
-        {
-            qDebug()<<"Game not running";
-            game->start();
-            ui->pushButton_Play->setText("Pause");
-        }
+        qDebug()<<"Game not running";
+        game->start();
+        ui->pushButton_Play->setText("Pause");
     }
+    // }
     qDebug()<<"play clicked";
     qDebug()<<game;
     ui->textEdit->setText((game->running==true)?"true":"false");
@@ -171,4 +186,13 @@ void MainWindow::on_pushButton_refresh_clicked()
 }
 
 
+
+
+void MainWindow::on_pushButton_5_clicked()
+{
+    ui->stackedWidget->setCurrentWidget(gamePage);
+    gamePage->show();
+    game = new Game(gamePage);
+    //game -> gameView ->stuckUnder(ui->pushButton_2);
+}
 

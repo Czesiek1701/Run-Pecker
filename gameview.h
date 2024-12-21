@@ -11,6 +11,7 @@ public:
     QGraphicsView * graphicsView;
     QGraphicsScene * graphicsScene;
     void stuckUnder(QWidget *ob);
+
 };
 
 #endif // GAMEVIEW_H

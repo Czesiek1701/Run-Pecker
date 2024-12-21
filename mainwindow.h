@@ -3,6 +3,7 @@
 
 #include <QMainWindow>
 #include "game.h"
+#include "gamePage.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
 
@@ -37,6 +38,8 @@ private slots:
 
     void on_pushButton_refresh_clicked();
 
+    void on_pushButton_5_clicked();
+
 private:
     Ui::MainWindow *ui;
     enum ePages
@@ -46,7 +49,7 @@ private:
         p_game
     };
     Game * game;
-    QWidget * gamePage;
+    GamePage *gamePage;
 
 public:
     //virtual bool eventFilter(QObject *object, QEvent *event)override;

@@ -22,6 +22,6 @@ void Game::start()
 }
 void Game::pause()
 {
-    running=true;
+    running=false;
     emit game_pause();
 }
