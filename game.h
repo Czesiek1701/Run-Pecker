@@ -2,17 +2,25 @@
 #define GAME_H
 #include <QSharedData>
 #include <QGraphicsPixmapItem>
+#include <QGraphicsView>
 #include "gameview.h"
+#include "creature.h"
 
-class Game : public QSharedData
+class Game : public QObject
 {
+    Q_OBJECT
 public:
-    Game();
+    Game(QWidget * parent);
     ~Game();
     bool running;
-    QImage* im_pecker;
-    QGraphicsPixmapItem* pixitem_pecker;
-    void peckerMove(int x, int y);
+    GameView *gameView;
+    Creature *pecker;
+    void start();
+    void pause();
+signals:
+    void game_start();
+    void game_pause();
+
 };
 
 #endif // GAME_H

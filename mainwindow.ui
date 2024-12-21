@@ -24,7 +24,7 @@
      </rect>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>2</number>
     </property>
     <widget class="QWidget" name="page_start">
      <widget class="QPushButton" name="pushButton_NewGmae">
@@ -157,18 +157,12 @@
        <string>Back</string>
       </property>
      </widget>
+     <zorder>pushButton</zorder>
+     <zorder>pushButton_9</zorder>
+     <zorder>pushButton_4</zorder>
+     <zorder>pushButton_3</zorder>
     </widget>
     <widget class="QWidget" name="page_game">
-     <widget class="QGraphicsView" name="graphicsView">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>50</y>
-        <width>811</width>
-        <height>551</height>
-       </rect>
-      </property>
-     </widget>
      <widget class="QPushButton" name="pushButton_2">
       <property name="geometry">
        <rect>

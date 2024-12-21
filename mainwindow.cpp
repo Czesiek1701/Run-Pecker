@@ -31,9 +31,10 @@ void MainWindow::on_pushButton_NewGmae_clicked()
     ui->pushButton_Play->setText("Play");
 
     game = nullptr;
-    scene = new QGraphicsScene(this);
-    ui->graphicsView->setBackgroundBrush(QBrush(Qt::gray));
-    ui->graphicsView->setScene(scene);
+    //scene = new QGraphicsScene(this);
+    //game_graphic_view = ui->graphicsView;
+    //ui->graphicsView->setBackgroundBrush(QBrush(Qt::gray));
+    //ui->graphicsView->setScene(scene);
 }
 
 
@@ -43,7 +44,8 @@ void MainWindow::on_pushButton_clicked()
 
     //delete game_graphic_view; //podmiana
     //delete scene1;
-    //qDebug() << "game_graphic_view delete";
+
+    delete game;
 }
 
 
@@ -52,11 +54,10 @@ void MainWindow::on_pushButton_2_clicked()
     if(game!=nullptr) delete game;
     game = nullptr;
     //ui->graphicsView->items().remove(0,0);
-    if(scene!=nullptr) delete scene;
-    scene = nullptr;
-    ui->graphicsView->show();
+    //if(scene!=nullptr) delete scene;
+    //scene = nullptr;
+    //ui->graphicsView->show();
     ui->stackedWidget->setCurrentIndex(ePages::p_start);
-    qDebug()<<"deleting";
 }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
@@ -83,32 +84,30 @@ void MainWindow::on_pushButton_Settings_clicked()
 {
     ui->stackedWidget->setCurrentIndex(ePages::p_settings);
 
-    // game_graphic_view = new QGraphicsView(ui->pushButton->parentWidget()); //podmiana
-    // game_graphic_view->setBackgroundBrush(QBrush(Qt::blue));
-    // qDebug() << "game_graphic_view new";
+    //game_graphic_view = new QGraphicsView(ui->pushButton->parentWidget()); //podmiana
+    //game_graphic_view->setBackgroundBrush(QBrush(Qt::blue));
     // //ui->stackedWidget->show();
     // //ui->stackedWidget->stackUnder(ui->pushButton_9);
 
     // //ui->stackedWidget->insertWidget(ePages::p_settings,game_graphic_view);
 
-    // game_graphic_view->setSceneRect(-100,-100,400,500);
-    // game_graphic_view->move(000,000);
+    //game_graphic_view->setSceneRect(-100,-100,400,500);
+    //game_graphic_view->move(000,000);
     // //game_graphic_view->stackUnder(ui->pushButton_9);
     // //game_graphic_view->Rect
     // //game_graphic_view->setScene(scene);
 
-    // game = new Game();
-    // scene1 = new QGraphicsScene(game_graphic_view);
+    game = new Game(ui->pushButton->parentWidget());
+    game->gameView->stuckUnder(ui->pushButton);
+    //scene1 = new QGraphicsScene(game_graphic_view);
     // //static QGraphicsRectItem rect = QGraphicsRectItem();
     // //rect.setRect(0,0,100,100);
-    // scene1->addItem(game->pixitem_pecker);
+    //scene1->addItem(game->pixitem_pecker);
     // //QRectF rect = (QRectF(0, 0, 100, 1000));
     // //scene1->addRect(rect);
     // //scene1->setSceneRect(100,100,300,300);
     // //scene1->setSceneRect(100,100,200,200);
-    // game_graphic_view->setScene(scene1);
-    // game_graphic_view->stackUnder(ui->pushButton_9);
-    // game_graphic_view->show();
+    //game_graphic_view->setScene(scene1);
 
 }
 
@@ -123,25 +122,22 @@ void MainWindow::on_pushButton_Play_clicked()
 {
     if (game == nullptr)
     {
-        game = new Game();
-        game->running = true;
+        game = new Game(ui->stackedWidget->currentWidget());
+        game -> gameView ->stuckUnder(ui->pushButton_2);
         ui->pushButton_Play->setText("Pause");
-        qDebug()<<"Game nullptr";
-
-        scene->addItem(game->pixitem_pecker);
     }
     else
     {
         if (game->running==true)
         {
             qDebug()<<"Game running";
-            game->running = false;
+            game->pause();
             ui->pushButton_Play->setText("Start");
         }
         else
         {
             qDebug()<<"Game not running";
-            game->running = true;
+            game->start();
             ui->pushButton_Play->setText("Pause");
         }
     }
@@ -167,11 +163,11 @@ void MainWindow::on_pushButton_refresh_clicked()
 
     if(game!=nullptr)
     {
-        game->pixitem_pecker->setOffset(game->pixitem_pecker->offset()+QPoint(10,10));
+        game->pecker->creatureMove(10,10);
     qDebug()<<"draw";
     }
 
-    ui->graphicsView->show();
+    //ui->graphicsView->show();
 }
 
 

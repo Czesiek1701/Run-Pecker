@@ -1,17 +1,27 @@
 #include "game.h"
 
-Game::Game():
-    running(true)
+Game::Game(QWidget * parent):
+    running(false)
 {
-    im_pecker = new QImage(":/data/pecker.bmp");
-    pixitem_pecker = new QGraphicsPixmapItem(QPixmap::fromImage(*im_pecker));
+    qDebug() << "Creating game...";
+    gameView = new GameView(parent);
+    pecker = new Creature(gameView->graphicsScene);
+    qDebug() << "Created game.";
 }
 Game::~Game()
 {
-    delete im_pecker;
-    delete pixitem_pecker;
+    qDebug() << "Deleting game...";
+    delete pecker;
+    delete gameView;
+    qDebug() << "Deleted game.";
 }
-void Game::peckerMove(int x, int y)
+void Game::start()
 {
-    qDebug()<<"pecker move";
+    running=true;
+    emit game_start();
+}
+void Game::pause()
+{
+    running=true;
+    emit game_pause();
 }

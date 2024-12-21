@@ -3,13 +3,14 @@
 
 #include <QGraphicsView>
 
-class GameView : public QGraphicsView
+class GameView
 {
-    Q_OBJECT
 public:
     GameView(QWidget * parent);
     ~GameView();
     QGraphicsView * graphicsView;
+    QGraphicsScene * graphicsScene;
+    void stuckUnder(QWidget *ob);
 };
 
 #endif // GAMEVIEW_H

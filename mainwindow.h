@@ -46,9 +46,7 @@ private:
         p_game
     };
     Game * game;
-    QGraphicsScene * scene;
-    QGraphicsScene * scene1;
-    QGraphicsView * game_graphic_view;
+    QWidget * gamePage;
 
 public:
     //virtual bool eventFilter(QObject *object, QEvent *event)override;
