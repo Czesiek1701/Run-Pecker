@@ -3,20 +3,21 @@
 #include <QSharedData>
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
-#include "gameview.h"
+#include "gamepage.h"
 #include "creature.h"
 
 class Game : public QObject
 {
     Q_OBJECT
 public:
-    Game(QWidget * parent);
+    Game(QWidget * gamePageParent);
     ~Game();
     bool running;
-    GameView *gameView;
+    GamePage *gamePage;
     Creature *pecker;
     void start();
     void pause();
+    //void close();
 signals:
     void game_start();
     void game_pause();

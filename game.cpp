@@ -1,18 +1,17 @@
 #include "game.h"
 
-Game::Game(QWidget * parent):
+Game::Game(QWidget * gamePageParent):
     running(false)
 {
     qDebug() << "Creating game...";
-    gameView = new GameView(parent);
-    pecker = new Creature(gameView->graphicsScene);
+    gamePage = new GamePage(gamePageParent);
+
     qDebug() << "Created game.";
 }
 Game::~Game()
 {
     qDebug() << "Deleting game...";
-    delete pecker;
-    delete gameView;
+    delete gamePage;
     qDebug() << "Deleted game.";
 }
 void Game::start()
@@ -25,3 +24,8 @@ void Game::pause()
     running=false;
     emit game_pause();
 }
+// void Game::close()
+// {
+//     this->pause();
+//     qDebug()<<"Close game";
+// }

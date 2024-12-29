@@ -1,6 +1,8 @@
 #ifndef GAMEBOARD_H
 #define GAMEBOARD_H
 
+#include <QGraphicsScene>
+
 class Gameboard
 {
 public:

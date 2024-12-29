@@ -26,9 +26,11 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         game.h game.cpp
         resources.qrc
         gameboard.h gameboard.cpp
-        gameview.h gameview.cpp
+
         creature.h creature.cpp
-        gamePage.h gamePage.cpp
+        OldgamePage.h OldgamePage.cpp
+        gamepage.h gamepage.cpp gamepage.ui
+        gamepause.h gamepause.cpp gamepause.ui
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET pecker_vt APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR

@@ -1,6 +1,6 @@
-#include "gamePage.h"
+#include "OldgamePage.h"
 
-GamePage::GamePage(QWidget *parent) : QWidget(parent)
+OldGamePage::OldGamePage(QWidget *parent) : QWidget(parent)
 {
     qDebug()<<"Creating GamePage...";
     qgv = new QGraphicsView(this);
@@ -9,7 +9,7 @@ GamePage::GamePage(QWidget *parent) : QWidget(parent)
     qgv->show();
     qDebug()<<"Created GamePage.";
 };
-GamePage::~GamePage()
+OldGamePage::~OldGamePage()
 {
     qDebug()<<"Deleting GamePage...";
     QWidget::~QWidget();

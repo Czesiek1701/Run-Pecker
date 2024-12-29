@@ -3,9 +3,10 @@
 
 #include <QMainWindow>
 #include "game.h"
-#include "gamePage.h"
+// #include "OldgamePage.h"
 #include <QGraphicsScene>
 #include <QKeyEvent>
+// #include "gamepage.h"
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -40,6 +41,8 @@ private slots:
 
     void on_pushButton_5_clicked();
 
+    void close_game();
+
 private:
     Ui::MainWindow *ui;
     enum ePages
@@ -49,7 +52,9 @@ private:
         p_game
     };
     Game * game;
-    GamePage *gamePage;
+    //OldGamePage *OldgamePage;
+    //GamePage *gamePage;
+
 
 public:
     //virtual bool eventFilter(QObject *object, QEvent *event)override;

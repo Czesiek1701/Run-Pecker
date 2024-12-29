@@ -3,12 +3,14 @@
 #include <QDebug>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
+#include "gamepause.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->statusbar->hide();
     ui->stackedWidget->setCurrentIndex(0);
 
 
@@ -27,16 +29,39 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_NewGmae_clicked()
 {
-    ui->stackedWidget->setCurrentIndex(ePages::p_game);
-    ui->pushButton_Play->setText("Play");
+    //ui->stackedWidget->setCurrentIndex(ePages::p_game);
+    //ui->pushButton_Play->setText("Play");
 
-    qDebug() << ui->stackedWidget->count();
+    //qDebug() << ui->stackedWidget->count();
 
-    gamePage = new GamePage(nullptr);
-    ui->stackedWidget->addWidget(gamePage);
+    // OldgamePage = new OldGamePage(nullptr);
+    // ui->stackedWidget->addWidget(OldgamePage);
 
-    qDebug() << ui->stackedWidget->count();
-    qDebug() << gamePage->parent();
+    // ui->stackedWidget->setCurrentWidget(OldgamePage);
+    //delete ui->page_game;
+    //ui->stackedWidget->setCurrentWidget(ui->page_game);
+    ui->stackedWidget->hide();
+    qDebug()<<"clicked NewGame";
+    game = new Game(this);
+    //this->layout()->addWidget(game->gamePage);
+    this->setCentralWidget(game->gamePage);
+
+    //ui->stackedWidget->addWidget(game->gamePage);
+    //ui->stackedWidget->setCurrentWidget(ui->page_game);
+
+    QObject::connect(
+        this->game->gamePage->gamePause,
+        &GamePause::s_exitGame,
+        this,
+        &MainWindow::close_game
+        );
+
+
+    //gamePage = new GamePage(ui->stackedWidget);
+    //gamePage->show();
+
+    //qDebug() << ui->stackedWidget->count();
+    //qDebug() << gamePage->parent();
 
     //gamePage = ui->stackedWidget->currentWidget();
 
@@ -60,7 +85,7 @@ void MainWindow::on_pushButton_clicked()
     //delete game_graphic_view; //podmiana
     //delete scene1;
 
-    delete game;
+    //delete game;
 }
 
 
@@ -77,16 +102,16 @@ void MainWindow::on_pushButton_2_clicked()
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
-    switch (event->key())
-    {
-    case Qt::Key_R:
-        qDebug()<<"key_R";
-        MainWindow::ui->textEdit->setText("R clicked");
-        break;
-    default:
-        MainWindow::ui->textEdit->setText("sth clicked");
-        break;
-    }
+    // switch (event->key())
+    // {
+    // case Qt::Key_R:
+    //     qDebug()<<"key_R";
+    //     MainWindow::ui->textEdit->setText("R clicked");
+    //     break;
+    // default:
+    //     MainWindow::ui->textEdit->setText("sth clicked");
+    //     break;
+    // }
 
     // if(event->key() == Qt::Key_R)
     // {
@@ -112,8 +137,8 @@ void MainWindow::on_pushButton_Settings_clicked()
     // //game_graphic_view->Rect
     // //game_graphic_view->setScene(scene);
 
-    game = new Game(ui->pushButton->parentWidget());
-    game->gameView->stuckUnder(ui->pushButton);
+    //game = new Game(ui->pushButton->parentWidget());
+    //game->gameView->stuckUnder(ui->pushButton);
     //scene1 = new QGraphicsScene(game_graphic_view);
     // //static QGraphicsRectItem rect = QGraphicsRectItem();
     // //rect.setRect(0,0,100,100);
@@ -133,66 +158,82 @@ void MainWindow::on_pushButton_Close_clicked()
 }
 
 
-void MainWindow::on_pushButton_Play_clicked()
-{
-    // if (game == nullptr)
-    // {
-    //     game = new Game(ui->stackedWidget->currentWidget());
-    //     game -> gameView ->stuckUnder(ui->pushButton_2);
-    //     ui->pushButton_Play->setText("Pause");
-    // }
-    // else
-    // {
-    if (game->running==true)
-    {
-        qDebug()<<"Game running";
-        game->pause();
-        ui->pushButton_Play->setText("Start");
-    }
-    else
-    {
-        qDebug()<<"Game not running";
-        game->start();
-        ui->pushButton_Play->setText("Pause");
-    }
-    // }
-    qDebug()<<"play clicked";
-    qDebug()<<game;
-    ui->textEdit->setText((game->running==true)?"true":"false");
-}
+// void MainWindow::on_pushButton_Play_clicked()
+// {
+//     if (game == nullptr)
+//     {
+//         game = new Game(ui->stackedWidget->currentWidget());
+//         //game -> gameView ->stuckUnder(ui->pushButton_2);
+//         ui->pushButton_Play->setText("Pause");
+//     }
+//     else
+//     {
+//         if (game->running==true)
+//         {
+//             qDebug()<<"Game running";
+//             game->pause();
+//             ui->pushButton_Play->setText("Start");
+//         }
+//         else
+//         {
+//             qDebug()<<"Game not running";
+//             game->start();
+//             ui->pushButton_Play->setText("Pause");
+//         }
+//     }
+//     qDebug()<<"play clicked";
+//     qDebug()<<game;
+//     ui->textEdit->setText((game->running==true)?"true":"false");
+// }
 
 
 
-void MainWindow::on_pushButton_refresh_clicked()
-{
-    if(game!=nullptr)
-    {
-        ui->textEdit->setText((game->running==true)?"true":"false");
-    }
-    else
-    {
-        ui->textEdit->setText("null");
-    }
-    ui->textEdit->show();
-    qDebug()<<"click";
+// void MainWindow::on_pushButton_refresh_clicked()
+// {
+//     if(game!=nullptr)
+//     {
+//         ui->textEdit->setText((game->running==true)?"true":"false");
+//     }
+//     else
+//     {
+//         ui->textEdit->setText("null");
+//     }
+//     ui->textEdit->show();
+//     qDebug()<<"click";
 
-    if(game!=nullptr)
-    {
-        game->pecker->creatureMove(10,10);
-    qDebug()<<"draw";
-    }
+//     if(game!=nullptr)
+//     {
+//         game->pecker->creatureMove(10,10);
+//     qDebug()<<"draw";
+//     }
 
-    //ui->graphicsView->show();
-}
+//     //ui->graphicsView->show();
+// }
 
 
 
 
 void MainWindow::on_pushButton_5_clicked()
 {
-    ui->stackedWidget->setCurrentWidget(gamePage);
-    gamePage->show();
-    game = new Game(gamePage);
+    //ui->stackedWidget->setCurrentWidget(OldgamePage);
+    //OldgamePage->show();
+    //game = new Game(OldgamePage);
     //game -> gameView ->stuckUnder(ui->pushButton_2);
 }
 
+void MainWindow::close_game()
+{
+    qDebug()<<"closing game";
+    if (game != nullptr)
+    {
+        //game->close();
+        delete game;
+        game = nullptr;
+    }
+    this->setCentralWidget(this);
+    //ui->stackedWidget->show();
+    //this->setCentralWidget(ui->stackedWidget);
+    //ui->stackedWidget->setCurrentWidget(ui->page_start);
+    //ui->stackedWidget->show();
+
+}
