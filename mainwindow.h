@@ -27,21 +27,19 @@ private slots:
 
     void on_pushButton_NewGmae_clicked();
 
-    void on_pushButton_clicked();
-
     void on_pushButton_2_clicked();
 
     void on_pushButton_Settings_clicked();
 
     void on_pushButton_Close_clicked();
 
-    void on_pushButton_Play_clicked();
-
-    void on_pushButton_refresh_clicked();
-
     void on_pushButton_5_clicked();
 
     void close_game();
+
+    void on_pushButton_clicked();
+
+    void on_pushButton_Back_clicked();
 
 private:
     Ui::MainWindow *ui;

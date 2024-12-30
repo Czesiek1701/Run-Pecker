@@ -48,7 +48,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>2</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="page_start">
        <layout class="QHBoxLayout" name="horizontalLayout">
@@ -172,7 +172,7 @@
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="pushButton_Sound">
             <property name="acceptDrops">
              <bool>false</bool>
             </property>
@@ -185,7 +185,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_3">
+           <widget class="QPushButton" name="pushButton_Graphic">
             <property name="acceptDrops">
              <bool>false</bool>
             </property>
@@ -198,7 +198,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_9">
+           <widget class="QPushButton" name="pushButton_Binds">
             <property name="acceptDrops">
              <bool>false</bool>
             </property>
@@ -211,7 +211,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton">
+           <widget class="QPushButton" name="pushButton_Back">
             <property name="acceptDrops">
              <bool>false</bool>
             </property>
