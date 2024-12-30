@@ -3,7 +3,7 @@
 #include <QDebug>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
-#include "gamepause.h"
+// #include "gamepause.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,15 +24,31 @@ void MainWindow::on_pushButton_NewGmae_clicked()
 {
     qDebug()<<"clicked NewGame";
     game = new Game(this);
-    this->setCentralWidget(game->gamePage);
+    this->updateCentralWidget();
+    //game->gamePage->gamePause->show();
 
     QObject::connect(
-        this->game->gamePage->gamePause,
+        this->game->gamePause,
         &GamePause::s_exitGame,
         this,
         &MainWindow::close_game
         );
 
+    QObject::connect(
+        this->game,
+        &Game::s_update_central_vidget,
+        this,
+        &MainWindow::updateCentralWidget
+        );
+
+}
+
+void MainWindow::updateCentralWidget()
+{
+    if (game)
+    {
+        this->setCentralWidget(game->centralWidget);
+    }
 }
 
 void MainWindow::on_pushButton_2_clicked()
@@ -90,6 +106,7 @@ void MainWindow::close_game()
     ui->setupUi(this);
     ui->stackedWidget->setCurrentWidget(ui->page_start);
     qDebug()<<ui;
+    this->setFocus();
     //this->focusWidget();
     //this->setCentralWidget(this);
     //ui->stackedWidget->show();

@@ -13,7 +13,8 @@ class GamePause : public QWidget
 
 public:
     explicit GamePause(QWidget *parent = nullptr);
-    ~GamePause();
+    virtual ~GamePause();
+    void keyPressEvent(QKeyEvent *event);
 
 private slots:
     void on_pushButton_Start_clicked();
@@ -22,6 +23,7 @@ private slots:
 
 signals:
     void s_exitGame();
+    void s_startGame();
 
 private:
     Ui::GamePause *ui;

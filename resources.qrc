@@ -1,5 +1,6 @@
 <RCC>
     <qresource prefix="/">
         <file>data/pecker.bmp</file>
+        <file>data/background.bmp</file>
     </qresource>
 </RCC>

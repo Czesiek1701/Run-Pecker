@@ -41,6 +41,8 @@ private slots:
 
     void on_pushButton_Back_clicked();
 
+    void updateCentralWidget();
+
 private:
     Ui::MainWindow *ui;
     enum ePages

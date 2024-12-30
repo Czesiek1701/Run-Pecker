@@ -1,12 +1,22 @@
 #ifndef GAMEBOARD_H
 #define GAMEBOARD_H
 
+#include <QGraphicsView>
+#include "creature.h"
 #include <QGraphicsScene>
 
-class Gameboard
+class GameBoard : public QGraphicsScene
 {
+    Q_OBJECT
 public:
-    Gameboard();
+    GameBoard(QWidget* parentView);
+    virtual ~GameBoard() {}
+    QRectF *sceneRect;
+    Creature *creature;
+    Creature& player = *creature;
+    // QGraphicsScene* getQGraphicsScene();
+public slots:
+    void updateCreatures();
 };
 
 #endif // GAMEBOARD_H

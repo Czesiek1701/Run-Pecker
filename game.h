@@ -4,7 +4,11 @@
 #include <QGraphicsPixmapItem>
 #include <QGraphicsView>
 #include "gamepage.h"
+#include "gamepause.h"
 #include "creature.h"
+#include <QTimer>
+
+inline int TIMESTAMP = 30;
 
 class Game : public QObject
 {
@@ -13,14 +17,21 @@ public:
     Game(QWidget * gamePageParent);
     ~Game();
     bool running;
+    QWidget *centralWidget;
     GamePage *gamePage;
-    Creature *pecker;
+    GamePause *gamePause;
+    QGraphicsScene *gameScene;
+    //Creature *pecker;
+    QTimer *gameTimer;
     void start();
     void pause();
     //void close();
+private:
+    void makeConnections();
 signals:
     void game_start();
     void game_pause();
+    void s_update_central_vidget();
 
 };
 

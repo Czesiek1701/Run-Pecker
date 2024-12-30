@@ -3,17 +3,29 @@
 #include <QGraphicsItem>
 #include <QGraphicsView>
 #include <QGraphicsScene>
+#include <QPoint>
 
-class Creature
+extern int TIMESTAMP;
+
+class Creature : public QObject , public QGraphicsPixmapItem
 {
-    QImage *image;
-    QGraphicsPixmapItem *pixItem;
-    //QGraphicsScene *game_graphicsScene;
+    Q_OBJECT
 public:
     Creature(QGraphicsScene * scene);
     ~Creature();
+    QImage *image;
+    //QGraphicsPixmapItem *pixItem;
+    //QGraphicsScene *game_graphicsScene;
     void creatureMove(int x, int y);
-    QGraphicsPixmapItem *getPixItem();
+    //QGraphicsPixmapItem *getPixItem();
+    int creatureWish[2] = {0,0};
+    void selfMove();
+    int vel = 300; //  pix/s
+    int step = int( (TIMESTAMP/1000.0)*vel) ;
+public slots:
+    void creatureDummyMove();
+    void setWishx(int d);
+    void setWishy(int d);
 };
 
 #endif // CREATURE_H
