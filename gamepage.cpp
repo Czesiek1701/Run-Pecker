@@ -24,7 +24,6 @@ GamePage::GamePage(QWidget *parent)
 
 GamePage::~GamePage()
 {
-
     qDebug()<<"Deleting GamePage";
     //delete gamePause;
     delete ui;
@@ -38,16 +37,16 @@ void GamePage::keyPressEvent(QKeyEvent *event)
     case Qt::Key_P:
         emit s_pause_game();
     case Qt::Key_D:
-        emit s_player_move_x(1);
+        pressed[3]=true;
         break;
     case Qt::Key_A:
-        emit s_player_move_x(-1);
+        pressed[1]=true;
         break;
     case Qt::Key_W:
-        emit s_player_move_y(-1);
+        pressed[0]=true;
         break;
     case Qt::Key_S:
-        emit s_player_move_y(1);
+        pressed[2]=true;
         break;
     default:
         break;
@@ -59,28 +58,30 @@ void GamePage::keyReleaseEvent(QKeyEvent *event)
     switch (event->key())
     {
     case Qt::Key_D:
-        qDebug()<<"D relesed";
-        emit s_player_move_x(0);
+        pressed[3]=false;
         break;
     case Qt::Key_A:
-        emit s_player_move_x(0);
+        pressed[1]=false;
         break;
     case Qt::Key_W:
-        emit s_player_move_y(0);
+        pressed[0]=false;
         break;
     case Qt::Key_S:
-        emit s_player_move_y(0);
+        pressed[2]=false;
         break;
     default:
-        qDebug()<<"sth relesed";
         break;
     }
 }
 
+void GamePage::send_movement()
+{
+    emit s_player_movement(pressed);
+}
+
 void GamePage::on_pushButton_gpPause_clicked()
 {
-    qDebug()<<"push clicked";
+    pressed &= 0;
     emit s_pause_game();
-    //gamePause->show();
 }
 

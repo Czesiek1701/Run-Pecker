@@ -4,6 +4,7 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QPoint>
+#include <bitset>
 
 extern int TIMESTAMP;
 
@@ -22,10 +23,12 @@ public:
     void selfMove();
     int vel = 300; //  pix/s
     int step = int( (TIMESTAMP/1000.0)*vel) ;
+    void rotateAroundCenter(int angles);
 public slots:
     void creatureDummyMove();
-    void setWishx(int d);
-    void setWishy(int d);
+    //void setWishx(int d);
+    //void setWishy(int d);
+    void getMovementWish(std::bitset<16>);
 };
 
 #endif // CREATURE_H

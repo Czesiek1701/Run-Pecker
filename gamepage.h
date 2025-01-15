@@ -3,12 +3,11 @@
 
 #include <QWidget>
 #include <QGraphicsView>
-#include "gamepause.h"
 #include <QKeyEvent>
 #include <QLayout>
 #include <QGraphicsScene>
-#include "creature.h"
 #include "gameboard.h"
+#include <bitset>
 
 namespace Ui {
 class GamePage;
@@ -27,17 +26,20 @@ public:
     GameBoard *gameBoard;
     //Creature *pecker;
     QRect *sceneRect;
+    std::bitset<16> pressed = false;
 
 private slots:
     void on_pushButton_gpPause_clicked();
 
 private:
     Ui::GamePage *ui;
-
+public slots:
+    void send_movement();
 signals:
     void s_pause_game();
-    void s_player_move_x(int);
-    void s_player_move_y(int);
+    //void s_player_move_x(int);
+    //void s_player_move_y(int);
+    void s_player_movement(std::bitset<16>);
 };
 
 #endif // GAMEPAGE_H
