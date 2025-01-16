@@ -2,5 +2,7 @@
     <qresource prefix="/">
         <file>data/pecker.bmp</file>
         <file>data/background.bmp</file>
+        <file>data/bot.bmp</file>
+        <file>data/def.bmp</file>
     </qresource>
 </RCC>

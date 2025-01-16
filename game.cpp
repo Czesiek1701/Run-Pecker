@@ -97,8 +97,8 @@ void Game::makeConnections()
     connect(
         this->gamePage,
         &GamePage::s_player_movement,
-        this->gamePage->gameBoard->creature,
-        &Creature::getMovementWish
+        this->gamePage->gameBoard->player,
+        &Player::getMovementWish
         );
 }
 // void Game::close()

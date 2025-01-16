@@ -35,7 +35,8 @@ void GamePage::keyPressEvent(QKeyEvent *event)
     switch (event->key())
     {
     case Qt::Key_P:
-        emit s_pause_game();
+        on_pushButton_gpPause_clicked();
+        break;
     case Qt::Key_D:
         pressed[3]=true;
         break;
@@ -81,7 +82,8 @@ void GamePage::send_movement()
 
 void GamePage::on_pushButton_gpPause_clicked()
 {
-    pressed &= 0;
+    pressed.reset();
+    send_movement();
     emit s_pause_game();
 }
 

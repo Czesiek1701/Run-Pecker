@@ -4,6 +4,8 @@
 #include <QGraphicsView>
 #include "creature.h"
 #include <QGraphicsScene>
+#include "player.h"
+#include "bot.h"
 
 class GameBoard : public QGraphicsScene
 {
@@ -12,8 +14,9 @@ public:
     GameBoard(QWidget* parentView);
     virtual ~GameBoard() {}
     QRectF *sceneRect;
-    Creature *creature;
-    Creature& player = *creature;
+    Player *player;
+    Bot *bot[3];
+    //Creature& player = *creature;
     // QGraphicsScene* getQGraphicsScene();
 public slots:
     void updateCreatures();

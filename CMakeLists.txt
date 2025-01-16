@@ -31,6 +31,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
 
         gamepage.h gamepage.cpp gamepage.ui
         gamepause.h gamepause.cpp gamepause.ui
+        player.h player.cpp
+        bot.h bot.cpp
 
 
 
