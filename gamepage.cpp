@@ -30,6 +30,7 @@ GamePage::~GamePage()
     qDebug()<<"Deleted GamePage";
 }
 
+
 void GamePage::keyPressEvent(QKeyEvent *event)
 {
     switch (event->key())
@@ -48,6 +49,15 @@ void GamePage::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_S:
         pressed[2]=true;
+        break;
+    case Qt::Key_B:
+        qDebug()<<"B key";
+        qDebug()<<gameBoard->player->pos();
+        emit emit_b();
+        //ui->boardView->centerOn(gameBoard->player->pos());
+        //ui->boardView->fitInView( QRectF( gameBoard->player->boundingRect() ) );
+        //ui->boardView->centerOn( gameBoard->player->pos() );
+        //ui->boardView->ensureVisible(gameBoard->player->boundingRect(),50,50);
         break;
     default:
         break;

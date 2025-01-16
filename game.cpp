@@ -4,6 +4,8 @@
 #include "gameboard.h"
 #include "game.h"
 
+// map, map cell, map save, map background, colliding object, egg,
+
 Game::Game(QWidget * gamePageParent):
     running(false)
 {
@@ -99,6 +101,13 @@ void Game::makeConnections()
         &GamePage::s_player_movement,
         this->gamePage->gameBoard->player,
         &Player::getMovementWish
+        );
+
+    connect(
+        this->gamePage,
+        &GamePage::emit_b,
+        this->gamePage->gameBoard,
+        &GameBoard::centerViewOnPlayer
         );
 }
 // void Game::close()

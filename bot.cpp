@@ -10,6 +10,8 @@
 //     return (p1.rx()>=p2.rx())&&(p1.ry()>=p2.ry());
 // }
 
+int Bot::static_bot_rand;
+
 Bot::Bot(QGraphicsScene * scene, QString impath)
     : Creature{scene, impath}
 {
@@ -18,13 +20,14 @@ Bot::Bot(QGraphicsScene * scene, QString impath)
 
 void Bot::setRandomDest()
 {
-    dest.rx() = QTime::currentTime().msec()%600;
-    dest.ry() = (QTime::currentTime().msec()*201)%600;
+    dest.rx() = (QTime::currentTime().msec()*Bot::static_bot_rand)%600;
+    dest.ry() = (QTime::currentTime().msec()*201*Bot::static_bot_rand)%600;
 
     creatureWish[0] = dest.rx()-Creature::pos().rx();
     creatureWish[1] = dest.ry()-Creature::pos().ry();
 
     updateAngle();
+    Bot::static_bot_rand+=317;
 }
 
 void Bot::actualize()

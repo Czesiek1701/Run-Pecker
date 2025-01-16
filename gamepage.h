@@ -40,6 +40,7 @@ signals:
     //void s_player_move_x(int);
     //void s_player_move_y(int);
     void s_player_movement(std::bitset<16>);
+    void emit_b();
 };
 
 #endif // GAMEPAGE_H

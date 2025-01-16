@@ -6,6 +6,7 @@
 #include <QGraphicsScene>
 #include "player.h"
 #include "bot.h"
+#include <vector>
 
 class GameBoard : public QGraphicsScene
 {
@@ -15,9 +16,10 @@ public:
     virtual ~GameBoard() {}
     QRectF *sceneRect;
     Player *player;
-    Bot *bot[3];
+    std::vector<Creature*> creatures;
     //Creature& player = *creature;
     // QGraphicsScene* getQGraphicsScene();
+    void centerViewOnPlayer();
 public slots:
     void updateCreatures();
 };

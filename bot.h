@@ -11,5 +11,6 @@ public:
     QPoint dest;
     void setRandomDest();
     void actualize() override;
+    static int static_bot_rand;
 };
 #endif // BOT_H

@@ -33,7 +33,7 @@ void Creature::creatureDummyMove()
 }
 // QGraphicsPixmapItem *Creature::getPixItem()
 // {
-//     return pixItem;
+//     return pixItem;x
 // }
 
 
@@ -56,7 +56,7 @@ void Creature::selfMove()
     double mag = std::sqrt(creatureWish[0]*creatureWish[0]+creatureWish[1]*creatureWish[1]);
     if ( std::abs(mag)>0.0625  )
     {
-        qDebug()<<mag;
+        //qDebug()<<mag;
         this->moveBy( creatureWish[0]*step/mag, creatureWish[1]*step/mag );
     }
 }
