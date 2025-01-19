@@ -13,8 +13,15 @@
 int Bot::static_bot_rand;
 
 Bot::Bot(QGraphicsScene * scene, QString impath)
-    : Creature{scene, impath}
+    : Creature{scene}
 {
+    image = new QImage(impath);
+    pixItem = new QGraphicsPixmapItem(this);
+    pixItem->setPixmap(QPixmap::fromImage(*image));
+    //setTransformOriginPoint( image->size().width()/2, image->size().height()/2 );
+    setTransformOriginPoint( pixItem->boundingRect().width()/2, pixItem->boundingRect().height()/2 );
+    this->setScale(30.0/pixItem->boundingRect().width());
+
     this->setRandomDest();
 }
 
@@ -39,8 +46,8 @@ void Bot::actualize()
     //         -Creature::QGraphicsPixmapItem::boundingRect().bottomLeft()
     //         )
     //     )
-    if ( abs(Creature::QGraphicsPixmapItem::pos().rx()-dest.rx())<50
-        && abs(Creature::QGraphicsPixmapItem::pos().ry()-dest.ry())<50 )
+    if ( abs(Creature::QGraphicsItem::pos().rx()-dest.rx())<50
+        && abs(Creature::QGraphicsItem::pos().ry()-dest.ry())<50 )
     {
         setRandomDest();
     }

@@ -1,8 +1,14 @@
 #include "player.h"
 
 Player::Player(QGraphicsScene * scene, QString impath)
-    : Creature{scene,impath}
+    : Creature{scene}
 {
+    image = new QImage(impath);
+    pixItem = new QGraphicsPixmapItem(this);
+    pixItem->setPixmap(QPixmap::fromImage(*image));
+    //setTransformOriginPoint( image->size().width()/2, image->size().height()/2 );
+    setTransformOriginPoint( pixItem->boundingRect().width()/2, pixItem->boundingRect().height()/2 );
+    this->setScale(30.0/pixItem->boundingRect().width());
 }
 
 

@@ -1,6 +1,6 @@
 #ifndef CREATURE_H
 #define CREATURE_H
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QPoint>
@@ -10,13 +10,20 @@
 extern int TIMESTAMP;
 extern double PI;
 
-class Creature : public QObject , public QGraphicsPixmapItem
+class Creature : public QGraphicsObject
 {
-    Q_OBJECT
+    //Q_OBJECT
 public:
-    Creature(QGraphicsScene * scene, QString impath);
+    Creature(QGraphicsScene * scene);
     ~Creature();
-    QImage *image;
+    //QGraphicsPixmapItem *pixItem;
+    //QImage *image;
+    QRectF qRectF();
+    QGraphicsItemGroup *graphicsItemGroup;
+
+    QRectF boundingRect() const override;
+    void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
+
     //QGraphicsPixmapItem *pixItem;
     //QGraphicsScene *game_graphicsScene;
     void creatureMove(int x, int y);

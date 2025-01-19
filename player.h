@@ -7,9 +7,13 @@
 
 class Player : public Creature
 {
-    Q_OBJECT
+    //Q_OBJECT
 public:
     explicit Player(QGraphicsScene * scene, QString impath);
+
+    QImage *image;
+    QGraphicsPixmapItem *pixItem;
+
 public slots:
     void getMovementWish(std::bitset<16> pressed);
 signals:

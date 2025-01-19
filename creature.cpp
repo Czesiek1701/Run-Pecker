@@ -1,18 +1,14 @@
 #include "creature.h"
 // #include "game.h"
 
-Creature::Creature(QGraphicsScene * scene, QString impath=":/data/pecker.bmp")
-    :QGraphicsPixmapItem() , QObject(scene)
+Creature::Creature(QGraphicsScene * scene)
+    :QGraphicsObject()
 {
     qDebug() << "Creating creature...";
+    scene->addItem(this);
+    graphicsItemGroup = new QGraphicsItemGroup(this);
     //game_graphicsScene = scene;
-    image = new QImage(impath);
-    this->setPixmap(QPixmap::fromImage(*image));
-    //setTransformOriginPoint( image->size().width()/2, image->size().height()/2 );
-    setTransformOriginPoint( boundingRect().width()/2, boundingRect().height()/2 );
-    this->setScale(30.0/boundingRect().width());
     //pixItem = new QGraphicsPixmapItem(QPixmap::fromImage(*image));
-    scene -> addItem(this);
     //boundingRect().width();
     qDebug() << "Created creature.";
 }
@@ -20,9 +16,22 @@ Creature::~Creature()
 {
     qDebug() << "Deleting creature...";
     //delete pixItem;
-    delete image;
+    //delete image;
     qDebug() << "Deleted creature.";
 }
+
+QRectF Creature::boundingRect() const
+{
+    //return pixItem -> boundingRect();
+}
+
+void Creature::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+{
+    Q_UNUSED(option);
+    Q_UNUSED(widget);
+    Q_UNUSED(painter);
+}
+
 void Creature::creatureMove(int x=10, int y=10)
 {
     this->moveBy(x,y);
@@ -64,5 +73,5 @@ void Creature::selfMove()
 
 void Creature::updateAngle()
 {
-    QGraphicsPixmapItem::setRotation(180/3.14159265*std::atan2(creatureWish[1], creatureWish[0])+90);
+    QGraphicsItem::setRotation(180/3.14159265*std::atan2(creatureWish[1], creatureWish[0])+90);
 }

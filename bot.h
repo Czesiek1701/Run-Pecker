@@ -5,9 +5,13 @@
 
 class Bot : public Creature
 {
-    Q_OBJECT
+    //Q_OBJECT
 public:
     Bot(QGraphicsScene * scene, QString impath);
+
+    QImage *image;
+    QGraphicsPixmapItem *pixItem;
+
     QPoint dest;
     void setRandomDest();
     void actualize() override;
