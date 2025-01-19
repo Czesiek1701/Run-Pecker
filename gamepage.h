@@ -22,7 +22,7 @@ public:
     ~GamePage();
     void keyPressEvent(QKeyEvent *event);
     void keyReleaseEvent(QKeyEvent *event);
-    //GamePause *gamePause;
+    //GamePause *gamePause; l
     GameBoard *gameBoard;
     //Creature *pecker;
     QRect *sceneRect;

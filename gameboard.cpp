@@ -1,4 +1,5 @@
 #include "gameboard.h"
+#include <QBrush>
 
 GameBoard::GameBoard(QWidget *parentView)
     : QGraphicsScene(parentView)
@@ -16,10 +17,16 @@ GameBoard::GameBoard(QWidget *parentView)
     }
     qDebug()<<12;
 
-    sceneRect = new QRectF(-300,-300,300,300);
+    sceneRect = new QRectF(-100,-100,100,100);
     this->setSceneRect(*sceneRect);
 
     centerViewOnPlayer();
+
+    QGraphicsRectItem* rect = new QGraphicsRectItem(-10,-10,20,20);
+    rect->setBrush(Qt::blue);
+    this->addItem(rect);
+
+
 }
 
 void GameBoard::updateCreatures()

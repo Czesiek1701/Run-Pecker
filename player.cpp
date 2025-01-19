@@ -3,7 +3,6 @@
 Player::Player(QGraphicsScene * scene, QString impath)
     : Creature{scene,impath}
 {
-
 }
 
 
@@ -47,3 +46,4 @@ void Player::getMovementWish(std::bitset<16> pressed)
         updateAngle();
     }
 }
+

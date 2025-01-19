@@ -10,7 +10,7 @@ GamePage::GamePage(QWidget *parent)
     ui->setupUi(this);
     this->show();
 
-    ui->boardView->setBackgroundBrush(QBrush(Qt::darkGreen));
+    ui->boardView->setBackgroundBrush(QBrush(Qt::darkGreen, Qt::Dense7Pattern));
 
     //ui->boardView->setSceneRect(0,0,500,500);
     gameBoard = new GameBoard(ui->boardView);
@@ -52,7 +52,7 @@ void GamePage::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_B:
         qDebug()<<"B key";
-        qDebug()<<gameBoard->player->pos();
+        //qDebug()<<gameBoard->player->pos();
         emit emit_b();
         //ui->boardView->centerOn(gameBoard->player->pos());
         //ui->boardView->fitInView( QRectF( gameBoard->player->boundingRect() ) );

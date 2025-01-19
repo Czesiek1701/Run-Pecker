@@ -59,6 +59,7 @@ void Creature::selfMove()
         //qDebug()<<mag;
         this->moveBy( creatureWish[0]*step/mag, creatureWish[1]*step/mag );
     }
+
 }
 
 void Creature::updateAngle()

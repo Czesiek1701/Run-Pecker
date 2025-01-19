@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include "creature.h"
+#include <QPainter>
 
 class Player : public Creature
 {
