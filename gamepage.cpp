@@ -10,7 +10,7 @@ GamePage::GamePage(QWidget *parent)
     ui->setupUi(this);
     this->show();
 
-    ui->boardView->setBackgroundBrush(QBrush(Qt::darkGreen, Qt::Dense7Pattern));
+    ui->boardView->setBackgroundBrush(QBrush(Qt::darkGreen));
 
     //ui->boardView->setSceneRect(0,0,500,500);
     gameBoard = new GameBoard(ui->boardView);
@@ -88,6 +88,7 @@ void GamePage::keyReleaseEvent(QKeyEvent *event)
 void GamePage::send_movement()
 {
     emit s_player_movement(pressed);
+    //ui->boardView->translate( 100,100 );
 }
 
 void GamePage::on_pushButton_gpPause_clicked()

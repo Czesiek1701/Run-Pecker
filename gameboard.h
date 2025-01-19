@@ -7,6 +7,7 @@
 #include "player.h"
 #include "bot.h"
 #include <vector>
+#include "mapcontrol.h"
 
 class GameBoard : public QGraphicsScene
 {
@@ -14,6 +15,8 @@ class GameBoard : public QGraphicsScene
 public:
     GameBoard(QWidget* parentView);
     virtual ~GameBoard() {}
+
+    MapControl *mapControl;
     QRectF *sceneRect;
     Player *player;
     std::vector<Creature*> creatures;

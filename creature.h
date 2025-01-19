@@ -18,7 +18,7 @@ public:
     ~Creature();
     //QGraphicsPixmapItem *pixItem;
     //QImage *image;
-    QRectF qRectF();
+    QRectF boundingRectF;
     QGraphicsItemGroup *graphicsItemGroup;
 
     QRectF boundingRect() const override;

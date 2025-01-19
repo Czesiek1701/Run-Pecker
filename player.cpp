@@ -8,9 +8,11 @@ Player::Player(QGraphicsScene * scene, QString impath)
     pixItem->setPixmap(QPixmap::fromImage(*image));
     //setTransformOriginPoint( image->size().width()/2, image->size().height()/2 );
     setTransformOriginPoint( pixItem->boundingRect().width()/2, pixItem->boundingRect().height()/2 );
+
+    graphicsItemGroup->addToGroup(pixItem);
+
     this->setScale(30.0/pixItem->boundingRect().width());
 }
-
 
 void Player::getMovementWish(std::bitset<16> pressed)
 {

@@ -4,3 +4,4 @@
 #include "EWIEGA46WW/moc_gamepage.cpp"
 #include "EWIEGA46WW/moc_gamepause.cpp"
 #include "EWIEGA46WW/moc_mainwindow.cpp"
+#include "EWIEGA46WW/moc_mapcontrol.cpp"

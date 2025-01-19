@@ -23,6 +23,7 @@ Creature::~Creature()
 QRectF Creature::boundingRect() const
 {
     //return pixItem -> boundingRect();
+    return boundingRectF;
 }
 
 void Creature::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -66,7 +67,7 @@ void Creature::selfMove()
     if ( std::abs(mag)>0.0625  )
     {
         //qDebug()<<mag;
-        this->moveBy( creatureWish[0]*step/mag, creatureWish[1]*step/mag );
+        this->moveBy( int(creatureWish[0]*step/mag), int(creatureWish[1]*step/mag) );
     }
 
 }

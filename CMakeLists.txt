@@ -33,6 +33,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         gamepause.h gamepause.cpp gamepause.ui
         player.h player.cpp
         bot.h bot.cpp
+        mapcontrol.h mapcontrol.cpp
+
 
 
 
