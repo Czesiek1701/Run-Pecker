@@ -17,6 +17,7 @@ Creature::~Creature()
     qDebug() << "Deleting creature...";
     //delete pixItem;
     //delete image;
+    delete graphicsItemGroup;
     qDebug() << "Deleted creature.";
 }
 

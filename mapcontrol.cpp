@@ -1,5 +1,19 @@
 #include "mapcontrol.h"
 
+// class MyRect: public QGraphicsRectItem
+// {
+// public:
+//     MyRect(qreal x1,qreal x2,qreal x3,qreal x4, QGraphicsObject* parent)
+//         : QGraphicsRectItem(x1,x2,x3,x4,parent)
+//     {
+
+//     }
+//     ~MyRect()
+//     {
+//         qDebug()<<"deleted myRect";
+//     }
+// };
+
 MapControl::MapControl(QGraphicsScene *scene)
     : QGraphicsObject()
 {
@@ -12,7 +26,9 @@ MapControl::MapControl(QGraphicsScene *scene)
 
 MapControl::~MapControl()
 {
-    qDebug()<<"Deleting mapcontrol";
+
+    delete graphicsItemGroup;
+    qDebug()<<"Deleted mapcontrol";
 }
 
 QRectF MapControl::boundingRect() const

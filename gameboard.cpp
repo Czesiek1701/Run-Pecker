@@ -15,7 +15,7 @@ GameBoard::GameBoard(QWidget *parentView)
     // bot[0] = new Bot(this, ":/data/bot.bmp");
     // bot[1] = new Bot(this, ":/data/bot.bmp");
     // bot[2] = new Bot(this, ":/data/bot.bmp");
-    for (int i=0;i<2;i++)
+    for (int i=0;i<200;i++)
     {
         creatures.push_back(new Bot(this, ":/data/bot.bmp"));
         creatures[i+1]->setZValue(0);
