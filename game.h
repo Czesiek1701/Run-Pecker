@@ -8,7 +8,7 @@
 #include "creature.h"
 #include <QTimer>
 
-inline int TIMESTAMP = 30;
+inline int TIMESTAMP = 15;
 
 class Game : public QObject
 {

@@ -25,7 +25,6 @@ void MainWindow::on_pushButton_NewGmae_clicked()
     qDebug()<<"clicked NewGame";
     game = new Game(this);
     this->updateCentralWidget();
-    //game->gamePage->gamePause->show();
 
     QObject::connect(
         this->game->gamePause,
@@ -98,7 +97,6 @@ void MainWindow::close_game()
     qDebug()<<"closing game";
     if (game != nullptr)
     {
-        //game->close();
         delete game;
         game = nullptr;
     }

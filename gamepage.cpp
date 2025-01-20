@@ -54,8 +54,9 @@ void GamePage::keyPressEvent(QKeyEvent *event)
         qDebug()<<"B key";
         //qDebug()<<gameBoard->player->pos();
         emit emit_b();
-        //ui->boardView->centerOn(gameBoard->player->pos());
-        //ui->boardView->fitInView( QRectF( gameBoard->player->boundingRect() ) );
+        //qDebug() << ui->boardView->alignment();
+        //ui->boardView->mapToScene(gameBoard->player->pos().toPoint());
+        ui->boardView->fitInView( 0,0,640,400 );
         //ui->boardView->centerOn( gameBoard->player->pos() );
         //ui->boardView->ensureVisible(gameBoard->player->boundingRect(),50,50);
         break;
