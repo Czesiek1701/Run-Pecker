@@ -11,7 +11,7 @@ class Player : public Creature
 public:
     explicit Player(QGraphicsScene * scene, QString impath);
 
-    QImage *image;
+    QImage image;
     QGraphicsPixmapItem *pixItem;
 
 public slots:

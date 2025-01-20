@@ -17,7 +17,7 @@ public:
     virtual ~GameBoard() {}
 
     MapControl *mapControl;
-    QRectF *sceneRect;
+    QRectF sceneRect;
     Player *player;
     std::vector<Creature*> creatures;
     //Creature& player = *creature;

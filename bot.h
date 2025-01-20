@@ -9,7 +9,7 @@ class Bot : public Creature
 public:
     Bot(QGraphicsScene * scene, QString impath);
 
-    QImage *image;
+    QImage image;
     QGraphicsPixmapItem *pixItem;
 
     QPoint dest;

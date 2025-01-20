@@ -15,15 +15,15 @@ GameBoard::GameBoard(QWidget *parentView)
     // bot[0] = new Bot(this, ":/data/bot.bmp");
     // bot[1] = new Bot(this, ":/data/bot.bmp");
     // bot[2] = new Bot(this, ":/data/bot.bmp");
-    for (int i=0;i<200;i++)
+    for (int i=0;i<100;i++)
     {
         creatures.push_back(new Bot(this, ":/data/bot.bmp"));
         creatures[i+1]->setZValue(0);
     }
     qDebug()<<12;
 
-    sceneRect = new QRectF(-200,-200,200,200);
-    this->setSceneRect(*sceneRect);
+    sceneRect = QRectF(-200,-200,200,200);
+    this->setSceneRect(sceneRect);
 
     centerViewOnPlayer();
 
