@@ -7,54 +7,61 @@
 // map, map cell, map save, map background, colliding object, egg,
 
 Game::Game(QWidget * gamePageParent):
-    running(false)
+    running(false),
+    QWidget(gamePageParent)
 {
-    centralWidget = nullptr;
     qDebug() << "Creating game...";
-    gamePause = new GamePause(gamePageParent);
-    gamePage = new GamePage(gamePageParent);
-    centralWidget = gamePage;
+    gamePage = new GamePage(this);
+    //setHeightForWidth()
+
+    gamePause = new GamePause(this);
+    makeGamePauseConnections();
+    //center policy
+
     gamePage->setFocus();
     gameTimer = new QTimer(this);
     qDebug() << "Created game.";
 
-    this->makeConnections();
+    this->makeGamePageConnections();
     gameTimer->start(TIMESTAMP);
-    //this->start();
 }
 Game::~Game()
 {
     qDebug() << "Deleting game...";
-    delete gamePage;
-    delete gamePause;
-    qDebug() << "Deleted game.";
+    // delete gamePage;
+    // delete gamePause;
+    //emit game_close();
+    //qDebug() << "Deleted game.";
 }
 void Game::start()
 {
+    qDebug()<<"Starting game";
+
     running=true;
+
     gamePause->hide();
-    gamePause->setParent(0);
-    centralWidget = gamePage;
-    emit s_update_central_vidget();
+
     gamePage->show();
     gamePage->setFocus();
+    gamePage->raise();
+
     gameTimer->start();
 
 }
 void Game::pause()
 {
+    qDebug()<<"Pausing game";
+
     gameTimer->stop();
+
     running=false;
-    qDebug()<<"Paused game";
-    gamePage->hide();
-    gamePage->setParent(0);
-    centralWidget = gamePause;
-    emit s_update_central_vidget();
+
     gamePause->show();
     gamePause->setFocus();
+    gamePause->raise();
 }
 
-void Game::makeConnections()
+void Game::makeGamePageConnections()
 {
     connect(
         gamePage,
@@ -62,47 +69,24 @@ void Game::makeConnections()
         this,
         &Game::pause
         );
-
-    connect(
-        gamePause,
-        &GamePause::s_startGame,
-        this,
-        &Game::start
-        );
-
     connect(
         gameTimer,
         &QTimer::timeout,
         this->gamePage->gameBoard,
         &GameBoard::updateCreatures
         );
-
     connect(
         gameTimer,
         &QTimer::timeout,
         this->gamePage,
         &GamePage::send_movement
         );
-
-    // connect(
-    //     this->gamePage,
-    //     &GamePage::s_player_move_x,
-    //     this->gamePage->gameBoard->creature,
-    //     &Creature::setWishx
-    //     );
-    // connect(
-    //     this->gamePage,
-    //     &GamePage::s_player_move_y,
-    //     this->gamePage->gameBoard->creature,
-    //     &Creature::setWishy
-    //     );
     connect(
         this->gamePage,
         &GamePage::s_player_movement,
         this->gamePage->gameBoard->player,
         &Player::getMovementWish
         );
-
     connect(
         this->gamePage,
         &GamePage::emit_b,
@@ -110,8 +94,14 @@ void Game::makeConnections()
         &GameBoard::centerViewOnPlayer
         );
 }
-// void Game::close()
-// {
-//     this->pause();
-//     qDebug()<<"Close game";
-// }
+
+
+void Game::makeGamePauseConnections()
+{
+    connect(
+        gamePause,
+        &GamePause::s_startGame,
+        this,
+        &Game::start
+        );
+}

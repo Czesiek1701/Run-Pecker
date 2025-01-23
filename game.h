@@ -10,14 +10,15 @@
 
 inline int TIMESTAMP = 15;
 
-class Game : public QObject
+class Game : public QWidget
 {
     Q_OBJECT
 public:
     Game(QWidget * gamePageParent);
     ~Game();
+    //QWidget * gamePageParent;
     bool running;
-    QWidget *centralWidget;
+    //QWidget *centralWidget;
     GamePage *gamePage;
     GamePause *gamePause;
     QGraphicsScene *gameScene;
@@ -27,11 +28,14 @@ public:
     void pause();
     //void close();
 private:
-    void makeConnections();
+    void makeGamePageConnections();
+    void makeGamePauseConnections();
 signals:
     void game_start();
     void game_pause();
+    void game_close();
     void s_update_central_vidget();
+    void s_new_game_pause();
 
 };
 

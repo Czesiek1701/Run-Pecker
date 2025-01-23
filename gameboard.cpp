@@ -12,10 +12,7 @@ GameBoard::GameBoard(QWidget *parentView)
     player->setZValue(1);
     creatures.push_back(player);
 
-    // bot[0] = new Bot(this, ":/data/bot.bmp");
-    // bot[1] = new Bot(this, ":/data/bot.bmp");
-    // bot[2] = new Bot(this, ":/data/bot.bmp");
-    for (int i=0;i<2;i++)
+    for (int i=0;i<1;i++)
     {
         creatures.push_back(new Bot(this, ":/data/bot.bmp"));
         creatures[i+1]->setZValue(0);
@@ -32,7 +29,6 @@ GameBoard::GameBoard(QWidget *parentView)
 
 void GameBoard::updateCreatures()
 {
-    //player->actualize();
     for(Creature* c:creatures)
     {
         c->actualize();
@@ -48,7 +44,3 @@ void GameBoard::centerViewOnPlayer()
     QGraphicsScene::setSceneRect(player->pos().rx()-320,player->pos().ry()-200,640,400);
 }
 
-// QGraphicsScene* GameBoard::getQGraphicsScene()
-// {
-//     return QGraphicsScene;
-// };

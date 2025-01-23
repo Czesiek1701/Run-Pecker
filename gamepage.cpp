@@ -6,19 +6,15 @@ GamePage::GamePage(QWidget *parent)
     , ui(new Ui::GamePage)
 {
     qDebug()<<"Creating GamePage";
-    //gamePause = new GamePause(parent);
+
     ui->setupUi(this);
     this->show();
 
     ui->boardView->setBackgroundBrush(QBrush(Qt::darkGreen));
 
-    //ui->boardView->setSceneRect(0,0,500,500);
     gameBoard = new GameBoard(ui->boardView);
     ui->boardView->setScene((QGraphicsScene*)gameBoard);
-    //gameScene->setSceneRect(0,0,400,400);
-    //pecker = new Creature((QGraphicsScene*)gameBoard);
-    //pecker -> creatureMove(100,100);
-    //connect(gamePause,GamePause::s_exitGame(),this,GamePage::on_pushButton_clicked());
+
     qDebug()<<"Created GamePage";
 }
 
@@ -29,6 +25,7 @@ GamePage::~GamePage()
     delete ui;
     qDebug()<<"Deleted GamePage";
 }
+
 
 
 void GamePage::keyPressEvent(QKeyEvent *event)
@@ -52,13 +49,7 @@ void GamePage::keyPressEvent(QKeyEvent *event)
         break;
     case Qt::Key_B:
         qDebug()<<"B key";
-        //qDebug()<<gameBoard->player->pos();
         emit emit_b();
-        //qDebug() << ui->boardView->alignment();
-        //ui->boardView->mapToScene(gameBoard->player->pos().toPoint());
-        ui->boardView->fitInView( 0,0,640,400 );
-        //ui->boardView->centerOn( gameBoard->player->pos() );
-        //ui->boardView->ensureVisible(gameBoard->player->boundingRect(),50,50);
         break;
     default:
         break;

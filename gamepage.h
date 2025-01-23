@@ -35,6 +35,7 @@ private:
     Ui::GamePage *ui;
 public slots:
     void send_movement();
+    // void fitGameInView();
 signals:
     void s_pause_game();
     //void s_player_move_x(int);

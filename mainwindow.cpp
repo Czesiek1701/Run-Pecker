@@ -3,7 +3,6 @@
 #include <QDebug>
 #include <QGraphicsPixmapItem>
 #include <QKeyEvent>
-// #include "gamepause.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -24,37 +23,16 @@ void MainWindow::on_pushButton_NewGmae_clicked()
 {
     qDebug()<<"clicked NewGame";
     game = new Game(this);
-    this->updateCentralWidget();
+    this->setCentralWidget(game);
 
     QObject::connect(
         this->game->gamePause,
         &GamePause::s_exitGame,
         this,
         &MainWindow::close_game
-        );
-
-    QObject::connect(
-        this->game,
-        &Game::s_update_central_vidget,
-        this,
-        &MainWindow::updateCentralWidget
-        );
-
+    );
 }
 
-void MainWindow::updateCentralWidget()
-{
-    if (game)
-    {
-        this->setCentralWidget(game->centralWidget);
-    }
-}
-
-void MainWindow::on_pushButton_2_clicked()
-{
-    if(game!=nullptr) delete game;
-    ui->stackedWidget->setCurrentIndex(ePages::p_start);
-}
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {
@@ -87,11 +65,6 @@ void MainWindow::on_pushButton_Close_clicked()
 }
 
 
-void MainWindow::on_pushButton_5_clicked()
-{
-
-}
-
 void MainWindow::close_game()
 {
     qDebug()<<"closing game";
@@ -105,19 +78,7 @@ void MainWindow::close_game()
     ui->stackedWidget->setCurrentWidget(ui->page_start);
     qDebug()<<ui;
     this->setFocus();
-    //this->focusWidget();
-    //this->setCentralWidget(this);
-    //ui->stackedWidget->show();
-    //this->takeCentralWidget();
-    //ui->stackedWidget->setCurrentWidget(ui->page_start);
-    //ui->stackedWidget->show();
-
 }
-
-void MainWindow::on_pushButton_clicked()
-{
-}
-
 
 void MainWindow::on_pushButton_Back_clicked()
 {

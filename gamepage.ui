@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>691</width>
-    <height>419</height>
+    <width>800</width>
+    <height>450</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -39,8 +39,8 @@
      </property>
      <property name="baseSize">
       <size>
-       <width>50</width>
-       <height>50</height>
+       <width>640</width>
+       <height>400</height>
       </size>
      </property>
      <property name="cursor" stdset="0">

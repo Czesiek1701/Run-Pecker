@@ -27,21 +27,13 @@ private slots:
 
     void on_pushButton_NewGmae_clicked();
 
-    void on_pushButton_2_clicked();
-
     void on_pushButton_Settings_clicked();
 
     void on_pushButton_Close_clicked();
 
-    void on_pushButton_5_clicked();
-
     void close_game();
 
-    void on_pushButton_clicked();
-
     void on_pushButton_Back_clicked();
-
-    void updateCentralWidget();
 
 private:
     Ui::MainWindow *ui;
@@ -52,12 +44,10 @@ private:
         p_game
     };
     Game * game;
-    //OldGamePage *OldgamePage;
-    //GamePage *gamePage;
 
 
 public:
-    //virtual bool eventFilter(QObject *object, QEvent *event)override;
+
 signals:
     void click_R();
 };
