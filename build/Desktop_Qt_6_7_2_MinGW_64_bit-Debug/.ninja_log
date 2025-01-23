@@ -1,0 +1,20 @@
+# ninja log v5
+9	2164	7593621520894985	pecker_vt_autogen/timestamp	40ed9d5a3df8c9cf
+9	2164	7593621520894985	pecker_vt_autogen/mocs_compilation.cpp	40ed9d5a3df8c9cf
+9	2164	7593621520894985	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/timestamp	40ed9d5a3df8c9cf
+9	2164	7593621520894985	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/mocs_compilation.cpp	40ed9d5a3df8c9cf
+2173	2354	7593621524312945	pecker_vt_autogen/EWIEGA46WW/qrc_resources.cpp	9c218d597dd4dd36
+2173	2354	7593621524312945	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/EWIEGA46WW/qrc_resources.cpp	9c218d597dd4dd36
+2372	8186	7593621579886938	CMakeFiles/pecker_vt.dir/gameboard.cpp.obj	30ebe10632a4aa71
+2359	8266	7593621582434824	CMakeFiles/pecker_vt.dir/main.cpp.obj	51309ca90eff9ce8
+2382	8355	7593621583324640	CMakeFiles/pecker_vt.dir/gamepage.cpp.obj	5a5e29f591effafb
+8266	9106	7593621591662324	CMakeFiles/pecker_vt.dir/pecker_vt_autogen/EWIEGA46WW/qrc_resources.cpp.obj	b1eadde047049aa6
+2421	9294	7593621593503210	CMakeFiles/pecker_vt.dir/player.cpp.obj	d3fe4fdc5dfb72e4
+2377	9767	7593621598301612	CMakeFiles/pecker_vt.dir/creature.cpp.obj	c574401267bb48ac
+2355	9782	7593621598121371	CMakeFiles/pecker_vt.dir/pecker_vt_autogen/mocs_compilation.cpp.obj	645fd97f64f65021
+2426	9797	7593621598331711	CMakeFiles/pecker_vt.dir/bot.cpp.obj	f970e6d915023afa
+2363	9908	7593621599767329	CMakeFiles/pecker_vt.dir/mainwindow.cpp.obj	b55b60e00b101073
+2386	9999	7593621600682985	CMakeFiles/pecker_vt.dir/gamepause.cpp.obj	6c0c484fdbcebeb4
+2367	10136	7593621602043755	CMakeFiles/pecker_vt.dir/game.cpp.obj	e45a29855c4d6836
+8187	12298	7593621623818104	CMakeFiles/pecker_vt.dir/mapcontrol.cpp.obj	9f3872c78fe64290
+12298	12946	7593621630225024	pecker_vt.exe	eb92a089f88ea8b2

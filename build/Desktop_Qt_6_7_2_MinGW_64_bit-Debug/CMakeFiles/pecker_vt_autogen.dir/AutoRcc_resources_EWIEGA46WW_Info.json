@@ -1,0 +1,28 @@
+{
+	"BUILD_DIR" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen",
+	"CMAKE_BINARY_DIR" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_BINARY_DIR" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug",
+	"CMAKE_CURRENT_SOURCE_DIR" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker",
+	"CMAKE_SOURCE_DIR" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker",
+	"CROSS_CONFIG" : false,
+	"GENERATOR" : "Ninja",
+	"INCLUDE_DIR" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/include",
+	"INPUTS" : 
+	[
+		"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/data/pecker.bmp",
+		"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/data/background.bmp",
+		"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/data/bot.bmp",
+		"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/data/def.bmp"
+	],
+	"LOCK_FILE" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/pecker_vt_autogen.dir/AutoRcc_resources_EWIEGA46WW_Lock.lock",
+	"MULTI_CONFIG" : false,
+	"OPTIONS" : [ "--no-zstd", "-name", "resources" ],
+	"OUTPUT_CHECKSUM" : "EWIEGA46WW",
+	"OUTPUT_NAME" : "qrc_resources.cpp",
+	"RCC_EXECUTABLE" : "D:/Qt/6.7.2/mingw_64/./bin/rcc.exe",
+	"RCC_LIST_OPTIONS" : [ "--list" ],
+	"SETTINGS_FILE" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/pecker_vt_autogen.dir/AutoRcc_resources_EWIEGA46WW_Used.txt",
+	"SOURCE" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/resources.qrc",
+	"USE_BETTER_GRAPH" : false,
+	"VERBOSITY" : 0
+}
