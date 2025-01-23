@@ -23,6 +23,12 @@
      <verstretch>0</verstretch>
     </sizepolicy>
    </property>
+   <property name="baseSize">
+    <size>
+     <width>800</width>
+     <height>0</height>
+    </size>
+   </property>
    <layout class="QGridLayout" name="gridLayout">
     <property name="leftMargin">
      <number>0</number>
@@ -48,7 +54,7 @@
        </sizepolicy>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>2</number>
       </property>
       <widget class="QWidget" name="page_start">
        <layout class="QHBoxLayout" name="horizontalLayout">

@@ -22,8 +22,26 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_NewGmae_clicked()
 {
     qDebug()<<"clicked NewGame";
+    // qDebug()<<this->sizePolicy();
     game = new Game(this);
+    // qDebug()<<this->sizePolicy();
+    //game->show();
+    //game->raise();
+    //ui->page_game->layout()->addWidget(game);
     this->setCentralWidget(game);
+    //game->gamePage->resize(this->size());
+    //game->resize(this->size());
+    //game->gamePage->resize(this->size());
+    // game->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    // game->gamePage->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    // game->adjustSize();
+    // game->gamePage->adjustSize();
+    // game->adjustSize();
+        // qDebug()<<this->sizePolicy();
+    // qDebug()<<this->game->sizePolicy();
+    // this->game->setSizePolicy(QSizePolicy ::Expanding , QSizePolicy ::Expanding );
+    // game->resize(300,600);
+
 
     QObject::connect(
         this->game->gamePause,
@@ -33,6 +51,14 @@ void MainWindow::on_pushButton_NewGmae_clicked()
     );
 }
 
+// void MainWindow::resizeEvent(QResizeEvent *event)
+// {
+//     if (game)
+//     {
+//         //game->resize(this->size());
+//         game->gamePage->resize(this->size());
+//     }
+// }
 
 void MainWindow::keyPressEvent(QKeyEvent *event)
 {

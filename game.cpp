@@ -10,12 +10,23 @@ Game::Game(QWidget * gamePageParent):
     running(false),
     QWidget(gamePageParent)
 {
+    qLayoutS = new QBoxLayout(QBoxLayout::Down, this);
+    qLayoutG = new QBoxLayout(QBoxLayout::Down, this);
+    qLayoutG->setSpacing(0);
+    qLayoutS->setSpacing(0);
+
+    this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    //this->frameSize();
+    this->adjustSize();
+
     qDebug() << "Creating game...";
     gamePage = new GamePage(this);
-    //setHeightForWidth()
+    qLayoutG->addWidget(gamePage);
+    //gamePage->mapToParent();
 
     gamePause = new GamePause(this);
     makeGamePauseConnections();
+    qLayoutS->addWidget(gamePause);
     //center policy
 
     gamePage->setFocus();
@@ -41,9 +52,11 @@ void Game::start()
 
     gamePause->hide();
 
-    gamePage->show();
+    gamePage->showMaximized();
     gamePage->setFocus();
     gamePage->raise();
+
+    //this->setLayout(qLayoutG);
 
     gameTimer->start();
 
@@ -55,6 +68,8 @@ void Game::pause()
     gameTimer->stop();
 
     running=false;
+
+    this->setLayout(qLayoutS);
 
     gamePause->show();
     gamePause->setFocus();

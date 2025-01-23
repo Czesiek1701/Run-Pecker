@@ -1,13 +1,22 @@
 #include "mainwindow.h"
 
 #include <QApplication>
-#include <crtdbg.h>
+#include <QLocale>
+#include <QTranslator>
 
 int main(int argc, char *argv[])
 {
-    _CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
-
     QApplication a(argc, argv);
+
+    QTranslator translator;
+    const QStringList uiLanguages = QLocale::system().uiLanguages();
+    for (const QString &locale : uiLanguages) {
+        const QString baseName = "Run-Pecker_" + QLocale(locale).name();
+        if (translator.load(":/i18n/" + baseName)) {
+            a.installTranslator(&translator);
+            break;
+        }
+    }
     MainWindow w;
     w.show();
     return a.exec();

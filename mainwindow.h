@@ -45,6 +45,7 @@ private:
     };
     Game * game;
 
+    //void resizeEvent(QResizeEvent *event) override;
 
 public:
 

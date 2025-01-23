@@ -7,6 +7,8 @@ GamePage::GamePage(QWidget *parent)
 {
     qDebug()<<"Creating GamePage";
 
+    this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+
     ui->setupUi(this);
     this->show();
 

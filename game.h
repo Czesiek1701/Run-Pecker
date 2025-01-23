@@ -7,6 +7,7 @@
 #include "gamepause.h"
 #include "creature.h"
 #include <QTimer>
+#include <QLayout>
 
 inline int TIMESTAMP = 15;
 
@@ -19,6 +20,8 @@ public:
     //QWidget * gamePageParent;
     bool running;
     //QWidget *centralWidget;
+    QLayout *qLayoutG;
+    QLayout *qLayoutS;
     GamePage *gamePage;
     GamePause *gamePause;
     QGraphicsScene *gameScene;
