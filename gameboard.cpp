@@ -12,7 +12,7 @@ GameBoard::GameBoard(QWidget *parentView)
     player->setZValue(1);
     creatures.push_back(player);
 
-    for (int i=0;i<1;i++)
+    for (int i=0;i<5;i++)
     {
         creatures.push_back(new Bot(this, ":/data/bot.bmp"));
         creatures[i+1]->setZValue(0);
