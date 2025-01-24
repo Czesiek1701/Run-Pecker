@@ -73,3 +73,15 @@
 645	7312	7593791955089157	CMakeFiles/pecker_vt.dir/gamepage.cpp.obj	5a5e29f591effafb
 642	8050	7593791962465232	CMakeFiles/pecker_vt.dir/game.cpp.obj	e45a29855c4d6836
 8050	8719	7593791969105263	pecker_vt.exe	eb92a089f88ea8b2
+154	4653	7594154141628327	pecker_vt_autogen/timestamp	40ed9d5a3df8c9cf
+154	4653	7594154141628327	pecker_vt_autogen/mocs_compilation.cpp	40ed9d5a3df8c9cf
+154	4653	7594154141628327	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/timestamp	40ed9d5a3df8c9cf
+154	4653	7594154141628327	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/mocs_compilation.cpp	40ed9d5a3df8c9cf
+4674	10778	7594154207436590	CMakeFiles/pecker_vt.dir/gamepause.cpp.obj	6c0c484fdbcebeb4
+4678	10809	7594154207446679	CMakeFiles/pecker_vt.dir/mapcontrol.cpp.obj	9f3872c78fe64290
+4666	11415	7594154213972020	CMakeFiles/pecker_vt.dir/game.cpp.obj	e45a29855c4d6836
+4659	11463	7594154214403278	CMakeFiles/pecker_vt.dir/main.cpp.obj	51309ca90eff9ce8
+4670	11880	7594154218677800	CMakeFiles/pecker_vt.dir/gamepage.cpp.obj	5a5e29f591effafb
+4654	12056	7594154220479105	CMakeFiles/pecker_vt.dir/pecker_vt_autogen/mocs_compilation.cpp.obj	645fd97f64f65021
+4663	12155	7594154221460254	CMakeFiles/pecker_vt.dir/mainwindow.cpp.obj	b55b60e00b101073
+12155	13046	7594154230332435	pecker_vt.exe	eb92a089f88ea8b2

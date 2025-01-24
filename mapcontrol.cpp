@@ -28,7 +28,7 @@ MapControl::MapControl(QGraphicsScene *scene)
 MapControl::~MapControl()
 {
 
-    delete graphicsItemGroup;
+    //delete graphicsItemGroup;
     qDebug()<<"Deleted mapcontrol";
 }
 

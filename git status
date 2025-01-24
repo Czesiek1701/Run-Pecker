@@ -1,0 +1,139 @@
+[33mcommit ae03e465b9e81ebd8ba9c1b2645a7afa2fd3cf27[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31mgitHubMain/main[m[33m)[m
+Author: GrzegorzC <157902583+Czesiek1701@users.noreply.github.com>
+Date:   Thu Jan 23 20:24:42 2025 +0100
+
+    Update gameboard.cpp
+    
+    dummy
+
+[33mcommit 4e40285572dd3fadd541e0e592e5f5e21b20569c[m[33m ([m[1;31mgitHubMain/master[m[33m, [m[1;32mmaster[m[33m)[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Thu Jan 23 20:09:03 2025 +0100
+
+    copy old base
+
+[33mcommit 9ff63bf5fe6fb16039ed9b3b2bad48a649172340[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Thu Jan 23 20:03:47 2025 +0100
+
+    copy
+
+[33mcommit 7433f8f62a9ab675723eef554de2b7d6c77f9f84[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Thu Jan 23 19:21:00 2025 +0100
+
+    Game refactorized
+
+[33mcommit 9e055f8babdd4d07309d2e3c0b56426d0049acbd[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Mon Jan 20 15:05:43 2025 +0100
+
+    dawing rects by overwriting paint()
+
+[33mcommit 985f3a49c43d590fb5fe2123b715f2ffc78b8fce[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Mon Jan 20 12:59:31 2025 +0100
+
+    some memory leaks repairs
+
+[33mcommit 25b02dc528ce364bc256454e77ffd14a1d803d48[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Sun Jan 19 18:53:00 2025 +0100
+
+    sth not yes wyth memory
+
+[33mcommit 72989cfea92f5c29f2b528ef9e5d7aae9e5252eb[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Sun Jan 19 16:09:06 2025 +0100
+
+    mapcontrol.cpp
+    
+    memory leaks not found
+
+[33mcommit 641ec02d56d4749a5a07068093acce6b9972e10d[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Sun Jan 19 13:37:03 2025 +0100
+
+    creature as QGraphicsObject with QGraphicsItemGroup
+
+[33mcommit 163b3bfa7c1ff5058127d9902e1f2ef4df9f7da5[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Sun Jan 19 12:06:57 2025 +0100
+
+    Before creature refatorization
+
+[33mcommit 223bd91da791a7a14aa0876845f106d105d98db2[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Thu Jan 16 19:22:21 2025 +0100
+
+    scene rrect following
+
+[33mcommit 40aff78ab1e14eced21d1c3a0c17797af44b5504[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Thu Jan 16 01:08:04 2025 +0100
+
+    Player, Bot
+
+[33mcommit 8047064c8b3f4c134782df99bb826731bf63f151[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Wed Jan 15 22:21:54 2025 +0100
+
+    steering first restrctuization
+
+[33mcommit 0c2d835f861f08802f8e6ddc2ab2aeb0bef7a8a1[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Mon Dec 30 21:31:36 2024 +0100
+
+    working movement,
+    to do:
+    refactoring player input,
+    map backround,
+    moving graphicsview,
+    saving,
+    settings,
+    sound,
+    bots,
+    contacts
+
+[33mcommit bb28acfa3955edecb5a663ea6c308158e3668b9d[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Mon Dec 30 16:21:44 2024 +0100
+
+    centered gamepage, working game exit, game QObject
+
+[33mcommit 40ae3023e02c4010c6ecbde6828f44de87700c10[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Sun Dec 29 20:52:20 2024 +0100
+
+    to repear: game_close
+
+[33mcommit 65a22f97946cb78bd7a5414ea8b6670fbdff419d[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Sat Dec 21 22:57:14 2024 +0100
+
+    .
+
+[33mcommit cc64543432343c68e72aade4a4ef145744d7cd06[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Sat Dec 21 21:39:48 2024 +0100
+
+    po refaktoryzacji
+    (mainwindow, game, gameview, creaute, gameboard(empty))
+
+[33mcommit 8d97f3073159add4683fd24b599419e6c898fe9f[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Fri Dec 20 22:22:06 2024 +0100
+
+    gameview tests
+
+[33mcommit f5c737546befcc56ae9c3e5731b016c342ebb9b3[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Fri Dec 20 19:32:27 2024 +0100
+
+    main, mainwindow, game
+
+[33mcommit bb5ba96ae626737c9717e3ec332c0b31272d57e4[m
+Author: Czesiek1701 <grzesiekczczaja@gmail.com>
+Date:   Thu Dec 19 16:15:07 2024 +0100
+
+    new

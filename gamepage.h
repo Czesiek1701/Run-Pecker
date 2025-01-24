@@ -25,7 +25,7 @@ public:
     //GamePause *gamePause; l
     GameBoard *gameBoard;
     //Creature *pecker;
-    QRect *sceneRect;
+    //QRect *sceneRect;
     std::bitset<16> pressed = false;
 
 private slots:
