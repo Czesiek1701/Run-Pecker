@@ -204,6 +204,7 @@ D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
+  D:/Qt/6.7.2/mingw_64/include/QtWidgets/qstackedlayout.h \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h \

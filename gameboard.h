@@ -17,12 +17,13 @@ public:
     virtual ~GameBoard() {}
 
     MapControl *mapControl;
-    QRectF sceneRect;
+    QRectF sceneRectt;
+    QPointF sceneRectSizeHalf{800/2,450/2};
     Player *player;
     std::vector<Creature*> creatures;
     //Creature& player = *creature;
     // QGraphicsScene* getQGraphicsScene();
-    void centerViewOnPlayer();
+    void actualizeSceneRect();
 public slots:
     void updateCreatures();
 };

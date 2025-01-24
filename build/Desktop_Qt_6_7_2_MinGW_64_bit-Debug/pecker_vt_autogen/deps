@@ -224,6 +224,7 @@ pecker_vt_autogen/timestamp: \
 	D:/Qt/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h \
 	D:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h \
 	D:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h \
+	D:/Qt/6.7.2/mingw_64/include/QtWidgets/qstackedlayout.h \
 	D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtabwidget.h \
 	D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h \
 	D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h \

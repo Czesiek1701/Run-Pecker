@@ -42,6 +42,7 @@ void Creature::creatureDummyMove()
 {
     creatureMove(10, 10);
 }
+
 // QGraphicsPixmapItem *Creature::getPixItem()
 // {
 //     return pixItem;x

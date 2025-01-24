@@ -7,7 +7,7 @@ GamePage::GamePage(QWidget *parent)
 {
     qDebug()<<"Creating GamePage";
 
-    this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
+    //this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
 
     ui->setupUi(this);
     this->show();
@@ -16,6 +16,11 @@ GamePage::GamePage(QWidget *parent)
 
     gameBoard = new GameBoard(ui->boardView);
     ui->boardView->setScene((QGraphicsScene*)gameBoard);
+    ui->boardView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    ui->boardView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    //ui->boardView->setAlignment(Qt::AlignCenter);
+    //ui->boardView->fitInView(gameBoard->sceneRect(),Qt::IgnoreAspectRatio);
+    //ui->boardView->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
 
     qDebug()<<"Created GamePage";
 }
@@ -82,7 +87,8 @@ void GamePage::keyReleaseEvent(QKeyEvent *event)
 void GamePage::send_movement()
 {
     emit s_player_movement(pressed);
-    //ui->boardView->translate( 100,100 );
+    ui->boardView->fitInView(gameBoard->sceneRect(),Qt::KeepAspectRatioByExpanding);
+    // limit that view!
 }
 
 void GamePage::on_pushButton_gpPause_clicked()

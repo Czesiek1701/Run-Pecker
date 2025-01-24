@@ -966,6 +966,7 @@ D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/game.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qlayoutitem.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h
+ mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qstackedlayout.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsglobal.h
@@ -1752,6 +1753,7 @@ D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mainwindow.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qmainwindow.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qscrollarea.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qsizepolicy.h
+ mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qstackedlayout.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtabwidget.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgets-config.h
  mdp:D:/Qt/6.7.2/mingw_64/include/QtWidgets/qtwidgetsexports.h

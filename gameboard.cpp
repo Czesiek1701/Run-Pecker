@@ -5,6 +5,7 @@ GameBoard::GameBoard(QWidget *parentView)
     : QGraphicsScene(parentView)
 {
     qDebug()<<"Creating game board";
+
     mapControl = new MapControl(this);
     mapControl->setZValue(-100);
 
@@ -19,10 +20,10 @@ GameBoard::GameBoard(QWidget *parentView)
     }
     qDebug()<<12;
 
-    sceneRect = QRectF(-200,-200,200,200);
-    this->setSceneRect(sceneRect);
+    //sceneRectt = QRectF(-300,-10,300,10);
+    this->setSceneRect(QRectF());
 
-    centerViewOnPlayer();
+    actualizeSceneRect();
 
 }
 
@@ -36,11 +37,17 @@ void GameBoard::updateCreatures()
 
     mapControl->update(-200,-200,400,400);
 
-    centerViewOnPlayer();
+    actualizeSceneRect();
 }
 
-void GameBoard::centerViewOnPlayer()
+void GameBoard::actualizeSceneRect()
 {
-    QGraphicsScene::setSceneRect(player->pos().rx()-320,player->pos().ry()-200,640,400);
+    QPointF c=player->mapToScene( player->transformOriginPoint() );
+    this->setSceneRect(
+        c.x()-sceneRectSizeHalf.x(),
+        c.y()-sceneRectSizeHalf.y(),
+        sceneRectSizeHalf.x()*2 ,
+        sceneRectSizeHalf.y()*2
+    );
 }
 

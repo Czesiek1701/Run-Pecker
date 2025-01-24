@@ -10,39 +10,31 @@ Game::Game(QWidget * gamePageParent):
     running(false),
     QWidget(gamePageParent)
 {
-    qLayoutS = new QBoxLayout(QBoxLayout::Down, this);
-    qLayoutG = new QBoxLayout(QBoxLayout::Down, this);
-    qLayoutG->setSpacing(0);
-    qLayoutS->setSpacing(0);
-
-    this->setSizePolicy(QSizePolicy::Expanding,QSizePolicy::Expanding);
-    //this->frameSize();
-    this->adjustSize();
-
     qDebug() << "Creating game...";
+
+    stackedLayout = new QStackedLayout(this);
+    stackedLayout->setStackingMode(QStackedLayout::StackAll);
+    this->setLayout(stackedLayout);
+
     gamePage = new GamePage(this);
-    qLayoutG->addWidget(gamePage);
-    //gamePage->mapToParent();
+    stackedLayout->addWidget(gamePage);
 
     gamePause = new GamePause(this);
-    makeGamePauseConnections();
-    qLayoutS->addWidget(gamePause);
-    //center policy
+    stackedLayout->addWidget(gamePause);
 
     gamePage->setFocus();
     gameTimer = new QTimer(this);
-    qDebug() << "Created game.";
 
-    this->makeGamePageConnections();
+    makeGamePageConnections();
+    makeGamePauseConnections();
+
     gameTimer->start(TIMESTAMP);
+
+    qDebug() << "Created game.";
 }
 Game::~Game()
 {
     qDebug() << "Deleting game...";
-    // delete gamePage;
-    // delete gamePause;
-    //emit game_close();
-    //qDebug() << "Deleted game.";
 }
 void Game::start()
 {
@@ -56,8 +48,6 @@ void Game::start()
     gamePage->setFocus();
     gamePage->raise();
 
-    //this->setLayout(qLayoutG);
-
     gameTimer->start();
 
 }
@@ -68,8 +58,6 @@ void Game::pause()
     gameTimer->stop();
 
     running=false;
-
-    this->setLayout(qLayoutS);
 
     gamePause->show();
     gamePause->setFocus();
@@ -106,7 +94,7 @@ void Game::makeGamePageConnections()
         this->gamePage,
         &GamePage::emit_b,
         this->gamePage->gameBoard,
-        &GameBoard::centerViewOnPlayer
+        &GameBoard::actualizeSceneRect
         );
 }
 

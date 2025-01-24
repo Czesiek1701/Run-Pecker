@@ -28,6 +28,8 @@ public:
     //QRect *sceneRect;
     std::bitset<16> pressed = false;
 
+    int heightForWidth( int w );
+
 private slots:
     void on_pushButton_gpPause_clicked();
 
