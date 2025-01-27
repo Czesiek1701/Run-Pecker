@@ -20,9 +20,11 @@ GameBoard::GameBoard(QWidget *parentView)
     }
     qDebug()<<12;
 
-    //sceneRectt = QRectF(-300,-10,300,10);
-    this->setSceneRect(QRectF());
-
+    sceneViewRect = QRectF(0,0,850,400);
+    mapControl->renderBoundingRect = QRectF(0,0,
+        (int)(sceneViewRect.width()*1.1),
+        (int)(sceneViewRect.height()*1.1)
+    );
     actualizeSceneRect();
 
 }
@@ -35,7 +37,7 @@ void GameBoard::updateCreatures()
         c->actualize();
     }
 
-    mapControl->update(-200,-200,400,400);
+    //mapControl->update(this->sceneRect());
 
     actualizeSceneRect();
 }
@@ -43,11 +45,10 @@ void GameBoard::updateCreatures()
 void GameBoard::actualizeSceneRect()
 {
     QPointF c=player->mapToScene( player->transformOriginPoint() );
-    this->setSceneRect(
-        c.x()-sceneRectSizeHalf.x(),
-        c.y()-sceneRectSizeHalf.y(),
-        sceneRectSizeHalf.x()*2 ,
-        sceneRectSizeHalf.y()*2
-    );
+
+    sceneViewRect.moveCenter(QPointF(c.x(),c.y()));
+    this->setSceneRect(sceneViewRect);
+
+    mapControl->renderBoundingRect.moveCenter(QPointF(c.x(),c.y()));
 }
 

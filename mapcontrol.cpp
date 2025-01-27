@@ -35,7 +35,8 @@ MapControl::~MapControl()
 QRectF MapControl::boundingRect() const
 {
     //return pixItem -> boundingRect();
-    return QRectF();
+    //return QRectF(-1000,-1000,1000,1000);
+    return renderBoundingRect;
 }
 
 void MapControl::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

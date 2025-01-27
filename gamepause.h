@@ -10,7 +10,6 @@ class GamePause;
 class GamePause : public QWidget
 {
     Q_OBJECT
-
 public:
     explicit GamePause(QWidget *parent = nullptr);
     virtual ~GamePause();

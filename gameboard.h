@@ -14,11 +14,13 @@ class GameBoard : public QGraphicsScene
     Q_OBJECT
 public:
     GameBoard(QWidget* parentView);
-    virtual ~GameBoard() {}
+    ~GameBoard() {}
+
+    //QPointF sceneRectSize{800,450};
+    QRectF sceneViewRect;
+    QRectF sceneRenderRect;
 
     MapControl *mapControl;
-    QRectF sceneRectt;
-    QPointF sceneRectSizeHalf{800/2,450/2};
     Player *player;
     std::vector<Creature*> creatures;
     //Creature& player = *creature;

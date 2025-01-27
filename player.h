@@ -9,7 +9,7 @@ class Player : public Creature
 {
     //Q_OBJECT
 public:
-    explicit Player(QGraphicsScene * scene, QString impath);
+    Player(QGraphicsScene * scene, QString impath);
 
     QImage image;
     QGraphicsPixmapItem *pixItem;
