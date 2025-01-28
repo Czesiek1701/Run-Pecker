@@ -194,7 +194,7 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 CMAKE_PROJECT_INCLUDE_BEFORE:FILEPATH=D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=Run-Pecker
+CMAKE_PROJECT_NAME:STATIC=pecker_vt
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.1
@@ -363,6 +363,15 @@ Vulkan_LIBRARY:FILEPATH=Vulkan_LIBRARY-NOTFOUND
 
 //Path to a program.
 WINDEPLOYQT_EXECUTABLE:FILEPATH=D:/Qt/6.7.2/mingw_64/bin/windeployqt.exe
+
+//Value Computed by CMake
+pecker_vt_BINARY_DIR:STATIC=D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug
+
+//Value Computed by CMake
+pecker_vt_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+pecker_vt_SOURCE_DIR:STATIC=D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker
 
 
 ########################

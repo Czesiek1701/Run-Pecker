@@ -1,5 +1,7 @@
 pecker_vt_autogen/timestamp: \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/CMakeLists.txt \
+	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/background.cpp \
+	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/background.h \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/bot.cpp \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/bot.h \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/.qtc/package-manager/auto-setup.cmake \
@@ -20,8 +22,6 @@ pecker_vt_autogen/timestamp: \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/main.cpp \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mainwindow.cpp \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mainwindow.h \
-	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapcontrol.cpp \
-	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapcontrol.h \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/player.cpp \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/player.h \
 	D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/resources.qrc \

@@ -1,16 +1,16 @@
-#ifndef MAPCONTROL_H
-#define MAPCONTROL_H
+#ifndef BACKGROUND_H
+#define BACKGROUND_H
 
 #include <QObject>
 #include <QGraphicsScene>
 #include <QGraphicsObject>
 
-class MapControl : public QGraphicsObject
+class Background : public QGraphicsObject
 {
     Q_OBJECT
 public:
-    explicit MapControl(QGraphicsScene *parent = nullptr);
-    ~MapControl();
+    explicit Background(QGraphicsScene *parent = nullptr);
+    ~Background();
 
     QRectF renderBoundingRect;
     QRectF boundingRect() const override;
@@ -23,4 +23,4 @@ public:
 signals:
 };
 
-#endif // MAPCONTROL_H
+#endif // BACKGROUND_H

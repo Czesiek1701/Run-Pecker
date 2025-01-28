@@ -7,7 +7,7 @@
 #include "player.h"
 #include "bot.h"
 #include <vector>
-#include "mapcontrol.h"
+#include "background.h"
 
 class GameBoard : public QGraphicsScene
 {
@@ -20,14 +20,14 @@ public:
     QRectF sceneViewRect;
     QRectF sceneRenderRect;
 
-    MapControl *mapControl;
+    Background *background;
     Player *player;
     std::vector<Creature*> creatures;
     //Creature& player = *creature;
     // QGraphicsScene* getQGraphicsScene();
     void actualizeSceneRect();
 public slots:
-    void updateCreatures();
+    void doStep();
 };
 
 #endif // GAMEBOARD_H

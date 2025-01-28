@@ -76,7 +76,7 @@ void Game::makeGamePageConnections()
         gameTimer,
         &QTimer::timeout,
         this->gamePage->gameBoard,
-        &GameBoard::updateCreatures
+        &GameBoard::doStep
         );
     connect(
         gameTimer,

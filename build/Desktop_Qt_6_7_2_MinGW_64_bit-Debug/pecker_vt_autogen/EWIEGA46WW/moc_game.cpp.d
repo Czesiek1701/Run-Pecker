@@ -1,11 +1,11 @@
 D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/EWIEGA46WW/moc_game.cpp: D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/game.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/pecker_vt_autogen/moc_predefs.h \
+  D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/background.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/bot.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/creature.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/gameboard.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/gamepage.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/gamepause.h \
-  D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapcontrol.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/player.h \
   D:/Qt/6.7.2/mingw_64/include/QtCore/QList \
   D:/Qt/6.7.2/mingw_64/include/QtCore/QObject \

@@ -258,6 +258,12 @@
 	"HEADERS" : 
 	[
 		[
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/background.h",
+			"MU",
+			"EWIEGA46WW/moc_background.cpp",
+			null
+		],
+		[
 			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/bot.h",
 			"MU",
 			"EWIEGA46WW/moc_bot.cpp",
@@ -300,9 +306,9 @@
 			null
 		],
 		[
-			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapcontrol.h",
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapobject.h",
 			"MU",
-			"EWIEGA46WW/moc_mapcontrol.cpp",
+			"EWIEGA46WW/moc_mapobject.cpp",
 			null
 		],
 		[
@@ -383,6 +389,11 @@
 	"SETTINGS_FILE" : "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-Debug/CMakeFiles/pecker_vt_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/background.cpp",
+			"MU",
+			null
+		],
 		[ "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/bot.cpp", "MU", null ],
 		[
 			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/creature.cpp",
@@ -412,7 +423,7 @@
 			null
 		],
 		[
-			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapcontrol.cpp",
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapobject.cpp",
 			"MU",
 			null
 		],

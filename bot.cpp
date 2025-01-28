@@ -1,15 +1,6 @@
 #include "bot.h"
 #include <QTime>
 
-// bool operator<=(QPoint p1, QPoint p2)
-// {
-//     return (p1.rx()<=p2.rx())&&(p1.ry()<=p2.ry());
-// }
-// bool operator>=(QPoint p1, QPoint p2)
-// {
-//     return (p1.rx()>=p2.rx())&&(p1.ry()>=p2.ry());
-// }
-
 int Bot::static_bot_rand;
 
 Bot::Bot(QGraphicsScene * scene, QString impath)
@@ -18,7 +9,7 @@ Bot::Bot(QGraphicsScene * scene, QString impath)
     image = QImage(impath);
     pixItem = new QGraphicsPixmapItem(this);
     pixItem->setPixmap(QPixmap::fromImage(image));
-    //setTransformOriginPoint( image->size().width()/2, image->size().height()/2 );
+
     setTransformOriginPoint( pixItem->boundingRect().width()/2, pixItem->boundingRect().height()/2 );
     pixItem->setScale(30.0/pixItem->boundingRect().width());
 
@@ -32,8 +23,8 @@ void Bot::setRandomDest()
     dest.rx() = (QTime::currentTime().msec()*Bot::static_bot_rand)%600;
     dest.ry() = (QTime::currentTime().msec()*201*Bot::static_bot_rand)%600;
 
-    creatureWish[0] = dest.rx()-Creature::pos().rx();
-    creatureWish[1] = dest.ry()-Creature::pos().ry();
+    creatureWish.rx() = dest.rx()-Creature::center().rx();
+    creatureWish.ry() = dest.ry()-Creature::center().ry();
 
     updateAngle();
     Bot::static_bot_rand+=317;
@@ -42,14 +33,8 @@ void Bot::setRandomDest()
 void Bot::actualize()
 {
     this->selfMove();
-    // if(Creature::QGraphicsPixmapItem::contains(
-    //         dest-Creature::QGraphicsPixmapItem::pos()
-    //         +Creature::QGraphicsPixmapItem::boundingRect().topRight()
-    //         -Creature::QGraphicsPixmapItem::boundingRect().bottomLeft()
-    //         )
-    //     )
-    if ( abs(Creature::QGraphicsItem::pos().rx()-dest.rx())<50
-        && abs(Creature::QGraphicsItem::pos().ry()-dest.ry())<50 )
+    if ( abs(Creature::center().rx()-dest.rx())<10
+        && abs(Creature::center().ry()-dest.ry())<10 )
     {
         setRandomDest();
     }

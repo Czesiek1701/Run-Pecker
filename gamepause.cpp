@@ -22,16 +22,6 @@ GamePause::~GamePause()
 
 void GamePause::keyPressEvent(QKeyEvent *event)
 {
-    // switch (event->key())
-    // {
-    // case Qt::Key_R:
-    //     qDebug()<<"key_R";
-    //     break;
-    // default:
-    //     qDebug()<<"sth clicked";
-    //     break;
-    // }
-
     if(event->key() == Qt::Key_P)
     {
         qDebug()<<"P clicked";
@@ -49,7 +39,6 @@ void GamePause::on_pushButton_Start_clicked()
 void GamePause::on_pushButton_Exit_clicked()
 {
     qDebug()<<"game exit";
-    //this->hide();
     emit s_exitGame();
 }
 

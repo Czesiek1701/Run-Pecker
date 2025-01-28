@@ -7,23 +7,17 @@ Creature::Creature(QGraphicsScene * scene)
     qDebug() << "Creating creature...";
     scene->addItem(this);
     graphicsItemGroup = new QGraphicsItemGroup(this);
-    //game_graphicsScene = scene;
-    //pixItem = new QGraphicsPixmapItem(QPixmap::fromImage(*image));
-    //boundingRect().width();
     qDebug() << "Created creature.";
 }
 Creature::~Creature()
 {
     qDebug() << "Deleting creature...";
-    //delete pixItem;
-    //delete image;
-    delete graphicsItemGroup;
+    //delete graphicsItemGroup;
     qDebug() << "Deleted creature.";
 }
 
 QRectF Creature::boundingRect() const
 {
-    //return pixItem -> boundingRect();
     return boundingRectF;
 }
 
@@ -43,21 +37,6 @@ void Creature::creatureDummyMove()
     creatureMove(10, 10);
 }
 
-// QGraphicsPixmapItem *Creature::getPixItem()
-// {
-//     return pixItem;x
-// }
-
-
-// void Creature::setWishx(int d)
-// {
-//     creatureWish[0] = d;
-// }
-// void Creature::setWishy(int d)
-// {
-//     creatureWish[1] = d;
-// }
-
 void Creature::actualize()
 {
     this->selfMove();
@@ -65,16 +44,20 @@ void Creature::actualize()
 
 void Creature::selfMove()
 {
-    double mag = std::sqrt(creatureWish[0]*creatureWish[0]+creatureWish[1]*creatureWish[1]);
+    double mag = std::sqrt(creatureWish.rx()*creatureWish.rx()+creatureWish.ry()*creatureWish.ry());
     if ( std::abs(mag)>0.0625  )
     {
-        //qDebug()<<mag;
-        this->moveBy( int(creatureWish[0]*step/mag), int(creatureWish[1]*step/mag) );
+        this->moveBy( (creatureWish.rx()*step/mag), (creatureWish.ry()*step/mag) );
     }
 
 }
 
 void Creature::updateAngle()
 {
-    QGraphicsItem::setRotation(180/3.14159265*std::atan2(creatureWish[1], creatureWish[0])+90);
+    QGraphicsItem::setRotation(180/3.14159265*std::atan2(creatureWish.ry(), creatureWish.rx())+90);
+}
+
+QPointF Creature::center()
+{
+    return this->mapToScene( this->transformOriginPoint() );
 }

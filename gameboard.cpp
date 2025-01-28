@@ -6,8 +6,8 @@ GameBoard::GameBoard(QWidget *parentView)
 {
     qDebug()<<"Creating game board";
 
-    mapControl = new MapControl(this);
-    mapControl->setZValue(-100);
+    background = new Background(this);
+    background->setZValue(-100);
 
     player = new Player(this, ":/data/pecker.bmp");
     player->setZValue(1);
@@ -20,8 +20,8 @@ GameBoard::GameBoard(QWidget *parentView)
     }
     qDebug()<<12;
 
-    sceneViewRect = QRectF(0,0,850,400);
-    mapControl->renderBoundingRect = QRectF(0,0,
+    sceneViewRect = QRectF(0,0,850*2,400*2);
+    background->renderBoundingRect = QRectF(0,0,
         (int)(sceneViewRect.width()*1.1),
         (int)(sceneViewRect.height()*1.1)
     );
@@ -29,8 +29,7 @@ GameBoard::GameBoard(QWidget *parentView)
 
 }
 
-
-void GameBoard::updateCreatures()
+void GameBoard::doStep()
 {
     for(Creature* c:creatures)
     {
@@ -44,11 +43,12 @@ void GameBoard::updateCreatures()
 
 void GameBoard::actualizeSceneRect()
 {
-    QPointF c=player->mapToScene( player->transformOriginPoint() );
+    //QPointF c=player->mapToScene( player->transformOriginPoint() );
+    //QPointF c=player->center();
 
-    sceneViewRect.moveCenter(QPointF(c.x(),c.y()));
+    sceneViewRect.moveCenter(player->center());
     this->setSceneRect(sceneViewRect);
 
-    mapControl->renderBoundingRect.moveCenter(QPointF(c.x(),c.y()));
+    background->renderBoundingRect.moveCenter(player->center());
 }
 

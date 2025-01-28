@@ -10,7 +10,7 @@
 #include <QLayout>
 #include <qstackedlayout.h>
 
-inline int TIMESTAMP = 15;
+inline int TIMESTAMP = 1000/120; // 1000[ms]/x[Hz]
 
 class Game : public QWidget
 {
