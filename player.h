@@ -14,6 +14,8 @@ public:
     QImage image;
     QGraphicsPixmapItem *pixItem;
 
+    //QPainterPath shape() const override;
+
 public slots:
     void getMovementWish(std::bitset<16> pressed);
 signals:

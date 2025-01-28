@@ -2,23 +2,18 @@
 // #include "game.h"
 
 Creature::Creature(QGraphicsScene * scene)
-    :QGraphicsObject()
+    :IMapObject(scene)
 {
-    qDebug() << "Creating creature...";
-    scene->addItem(this);
-    graphicsItemGroup = new QGraphicsItemGroup(this);
-    qDebug() << "Created creature.";
+    qDebug() << "Creating creature";
 }
 Creature::~Creature()
 {
-    qDebug() << "Deleting creature...";
-    //delete graphicsItemGroup;
-    qDebug() << "Deleted creature.";
+    qDebug() << "Deleting creature.";
 }
 
 QRectF Creature::boundingRect() const
 {
-    return boundingRectF;
+    return graphicsItemGroup->boundingRect();
 }
 
 void Creature::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
@@ -26,15 +21,6 @@ void Creature::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, 
     Q_UNUSED(option);
     Q_UNUSED(widget);
     Q_UNUSED(painter);
-}
-
-void Creature::creatureMove(int x=10, int y=10)
-{
-    this->moveBy(x,y);
-}
-void Creature::creatureDummyMove()
-{
-    creatureMove(10, 10);
 }
 
 void Creature::actualize()

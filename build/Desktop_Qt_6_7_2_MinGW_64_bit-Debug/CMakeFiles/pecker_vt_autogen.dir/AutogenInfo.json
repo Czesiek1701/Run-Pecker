@@ -300,15 +300,21 @@
 			null
 		],
 		[
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/imapobject.h",
+			"MU",
+			"EWIEGA46WW/moc_imapobject.cpp",
+			null
+		],
+		[
 			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
 			null
 		],
 		[
-			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapobject.h",
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/nonpenetratingwall.h",
 			"MU",
-			"EWIEGA46WW/moc_mapobject.cpp",
+			"EWIEGA46WW/moc_nonpenetratingwall.cpp",
 			null
 		],
 		[
@@ -416,6 +422,11 @@
 			"MU",
 			null
 		],
+		[
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/imapobject.cpp",
+			"MU",
+			null
+		],
 		[ "D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/main.cpp", "MU", null ],
 		[
 			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mainwindow.cpp",
@@ -423,7 +434,7 @@
 			null
 		],
 		[
-			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/mapobject.cpp",
+			"D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/nonpenetratingwall.cpp",
 			"MU",
 			null
 		],

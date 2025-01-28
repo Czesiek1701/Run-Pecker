@@ -3,6 +3,8 @@ D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/background.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/bot.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/creature.h \
+  D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/imapobject.h \
+  D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/nonpenetratingwall.h \
   D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/player.h \
   D:/Qt/6.7.2/mingw_64/include/QtCore/QObject \
   D:/Qt/6.7.2/mingw_64/include/QtCore/QPoint \
@@ -154,6 +156,7 @@ D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-
   D:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs.h \
   D:/Qt/6.7.2/mingw_64/include/QtGui/qwindowdefs_win.h \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsObject \
+  D:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsRectItem \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsScene \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/QGraphicsView \
   D:/Qt/6.7.2/mingw_64/include/QtWidgets/qabstractscrollarea.h \

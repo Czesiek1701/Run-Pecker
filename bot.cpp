@@ -6,6 +6,8 @@ int Bot::static_bot_rand;
 Bot::Bot(QGraphicsScene * scene, QString impath)
     : Creature{scene}
 {
+    this->setObjectName("bot");
+
     image = QImage(impath);
     pixItem = new QGraphicsPixmapItem(this);
     pixItem->setPixmap(QPixmap::fromImage(image));
@@ -14,6 +16,8 @@ Bot::Bot(QGraphicsScene * scene, QString impath)
     pixItem->setScale(30.0/pixItem->boundingRect().width());
 
     graphicsItemGroup->addToGroup(pixItem);
+
+    this->setPos(400,400);
 
     this->setRandomDest();
 }

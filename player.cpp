@@ -3,6 +3,8 @@
 Player::Player(QGraphicsScene * scene, QString impath)
     : Creature{scene}
 {
+    this->setObjectName("player");
+
     image = QImage(impath);
     pixItem = new QGraphicsPixmapItem(this);
     pixItem->setPixmap(QPixmap::fromImage(image));
@@ -54,4 +56,11 @@ void Player::getMovementWish(std::bitset<16> pressed)
         updateAngle();
     }
 }
+
+// QPainterPath Player::shape() const
+// {
+//     QPainterPath path;
+//     path.addRect((this->boundingRect()) );
+//     return path;
+// }
 

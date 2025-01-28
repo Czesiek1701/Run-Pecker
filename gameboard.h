@@ -8,6 +8,7 @@
 #include "bot.h"
 #include <vector>
 #include "background.h"
+#include "nonpenetratingwall.h"
 
 class GameBoard : public QGraphicsScene
 {
@@ -23,8 +24,10 @@ public:
     Background *background;
     Player *player;
     std::vector<Creature*> creatures;
+    std::vector<NonPenetratingWall*> fixedObjects;
     //Creature& player = *creature;
     // QGraphicsScene* getQGraphicsScene();
+    //QPainterPath qpp;
     void actualizeSceneRect();
 public slots:
     void doStep();

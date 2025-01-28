@@ -6,35 +6,32 @@
 #include <QPoint>
 #include <bitset>
 #include <cmath>
+#include "imapobject.h"
 
 extern int TIMESTAMP;
 extern double PI;
 
-class Creature : public QGraphicsObject
+class Creature : public IMapObject
 {
     //Q_OBJECT
 public:
     Creature(QGraphicsScene * scene);
-    ~Creature();
-    //QGraphicsPixmapItem *pixItem;
-    //QImage *image;
+    virtual ~Creature();
+
     QRectF boundingRectF;
-    QGraphicsItemGroup *graphicsItemGroup;
+
     QRectF boundingRect() const override;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr) override;
 
     QPointF center();
-    //QGraphicsPixmapItem *pixItem;
-    //QGraphicsScene *game_graphicsScene;
-    void creatureMove(int x, int y);
-    //QGraphicsPixmapItem *getPixItem();
     QPoint creatureWish = {0,0};
-    void selfMove();
-    void updateAngle();
     int vel = 300; //  pix/s
     int step = int(TIMESTAMP*vel/1000.0);
+
+    void selfMove();
+    void updateAngle();
+
 public slots:
-    void creatureDummyMove();
     virtual void actualize();
     //void setWishx(int d);
     //void setWishy(int d);

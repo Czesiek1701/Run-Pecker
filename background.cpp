@@ -4,6 +4,8 @@
 Background::Background(QGraphicsScene *scene)
     : QGraphicsObject()
 {
+    this->setObjectName("background");
+
     qDebug()<<"Creating mapcontrol";
     scene->addItem(this);
     graphicsItemGroup = new QGraphicsItemGroup(this);
