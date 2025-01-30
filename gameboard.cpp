@@ -52,7 +52,7 @@ void GameBoard::doStep()
 
     if( fixedObjects[0]->collidesWithItem( player ) )
     {
-        qDebug() << "wall collison path";
+        //qDebug() << "wall collison path";
         for (int i=0; i<fixedObjects[0]->shape().elementCount()-1; i++ )
         {
             //qDebug() << fixedObjects[0]->shape().elementAt(i);
@@ -65,6 +65,51 @@ void GameBoard::doStep()
             {
                 qDebug()<< "Player colides with: \n" << qpp;
                 //wyznaczyć normalną itd...
+                // QPointF tl = player->boundingRectF.topLeft();
+                // qDebug() << tl;
+                // QLineF l = {QPointF(qpp.elementAt(0)),QPointF(qpp.elementAt(1))};
+                // qreal an = -l.angle();
+
+                QPointF p_1 = QPointF(qpp.elementAt(0));
+                QPointF p_c = fixedObjects[0]->mapFromItem(player, player->boundingRectF.topLeft());
+                p_c-=p_1;
+                QPointF p_2 = QPointF(qpp.elementAt(1));
+                p_2-=p_1;
+                //QLineF p1p2 = {QPointF(qpp.elementAt(0)), QPointF(qpp.elementAt(1))};
+
+                qreal alpha = QLineF({0,0},p_2).angle();
+                //qreal beta = -1*p1pc.angle();
+                qDebug() << alpha;
+                qDebug() << p_2.x()*std::cos(alpha*3.14159/180)-p_2.y()*std::sin(alpha*3.14159/180);
+                qDebug() << +1*p_2.x()*std::sin(alpha*3.14159/180)+p_2.y()*std::cos(alpha*3.14159/180);
+                //qreal len_p1px =
+                //qDebug() << p_c.x()*std::cos(alpha*3.14159/180)+p_c.y()*std::sin(alpha*3.14159/180);
+
+                // TO LINE COORDS
+                QPointF vlin = {(p_c.x()*std::cos(alpha*3.14159/180)-1*p_c.y()*std::sin(alpha*3.14159/180))*0, // temp
+                                (+1*p_c.x()*std::sin(alpha*3.14159/180)+p_c.y()*std::cos(alpha*3.14159/180))}; // -
+                qDebug() << vlin;
+                QPointF vloc = {
+                    vlin.x()*std::cos(alpha*3.14159/180)+(vlin.y())*std::sin(alpha*3.14159/180),
+                    (-1)*vlin.x()*std::sin(alpha*3.14159/180)+(vlin.y())*std::cos(alpha*3.14159/180)
+                };
+
+                //vloc+=p_1;
+                qDebug() << vloc;
+                QPointF vg = -1*fixedObjects[0]->mapToScene(vloc);
+                qDebug() << vg;
+
+                // qDebug() << fixedObjects[0]->mapToItem(player, v);
+                // QPointF vg = fixedObjects[0]->mapToScene(v); //-player->mapToScene(player->boundingRect().topLeft());
+                //qDebug()<< player->boundingRect().topLeft();
+                if(vlin.y()>0)
+                {
+                    //player->setPos(vg.x(),vg.y());
+                    player->moveBy(vg.x(),vg.y());
+                    qDebug() << player->mapToScene(player->boundingRect().center());
+                    qDebug() << player->mapToScene(player->boundingRect().topLeft());
+                }
+
             }
         }
     }
