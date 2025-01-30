@@ -14,6 +14,17 @@ NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene)
     //qDebug() << mapToScene(shape());
 }
 
+
+NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene, QRectF qrf)
+    : IMapObject(scene)
+{
+    this->setObjectName("wall");
+
+    qDebug() << "Creating NonPenWall";
+    qRectF = qrf;
+    this->setRotation(qRectF.width()*2+qRectF.height()*3);
+}
+
 // QPainterPath NonPenetratingWall::shape() const
 // {
 //     QPainterPath path;
@@ -34,9 +45,4 @@ void NonPenetratingWall::paint(QPainter *painter, const QStyleOptionGraphicsItem
 
     painter->setBrush(Qt::gray);
     painter->drawRect(qRectF);
-
-    QPainterPath qpp;
-    qpp.moveTo(100,100);
-    qpp.lineTo(200,100);
-    painter->drawPath(qpp);
 }

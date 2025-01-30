@@ -28,6 +28,7 @@ public:
     //Creature& player = *creature;
     // QGraphicsScene* getQGraphicsScene();
     //QPainterPath qpp;
+    void handleContact(Creature& movCrt, QGraphicsItem& fixObj);
     void actualizeSceneRect();
 public slots:
     void doStep();

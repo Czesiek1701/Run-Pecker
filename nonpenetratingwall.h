@@ -7,6 +7,7 @@ class NonPenetratingWall : public IMapObject
 {
 public:
     NonPenetratingWall(QGraphicsScene * scene);
+    NonPenetratingWall(QGraphicsScene * scene, QRectF);
 
     QRectF qRectF;
 

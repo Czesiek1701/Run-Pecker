@@ -31,6 +31,8 @@ public:
     void selfMove();
     void updateAngle();
 
+    qreal contact_radius=10; //default
+
 public slots:
     virtual void actualize();
     //void setWishx(int d);
