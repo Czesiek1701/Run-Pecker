@@ -10,7 +10,7 @@ Game::Game(QWidget * gamePageParent):
     running(false),
     QWidget(gamePageParent)
 {
-    qDebug() << "Creating game...";
+    qDebug() << "Creating game... ";
 
     stackedLayout = new QStackedLayout(this);
     stackedLayout->setStackingMode(QStackedLayout::StackAll);
