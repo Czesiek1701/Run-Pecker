@@ -9,6 +9,7 @@
 #include <vector>
 #include "background.h"
 #include "nonpenetratingwall.h"
+#include <QTransform>
 
 class GameBoard : public QGraphicsScene
 {
@@ -29,6 +30,7 @@ public:
     // QGraphicsScene* getQGraphicsScene();
     //QPainterPath qpp;
     void handleContact(Creature& movCrt, QGraphicsItem& fixObj);
+    void handleContactOld(Creature& movCrt, QGraphicsItem& fixObj);
     void actualizeSceneRect();
 public slots:
     void doStep();

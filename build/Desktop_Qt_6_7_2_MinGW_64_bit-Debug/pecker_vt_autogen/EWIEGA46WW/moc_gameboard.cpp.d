@@ -126,6 +126,7 @@ D:/Magazyn/Studnia_czasu/dev_cpp/Run-Pecker/build/Desktop_Qt_6_7_2_MinGW_64_bit-
   D:/Qt/6.7.2/mingw_64/include/QtCore/qxptype_traits.h \
   D:/Qt/6.7.2/mingw_64/include/QtCore/qyieldcpu.h \
   D:/Qt/6.7.2/mingw_64/include/QtGui/QPainter \
+  D:/Qt/6.7.2/mingw_64/include/QtGui/QTransform \
   D:/Qt/6.7.2/mingw_64/include/QtGui/qaction.h \
   D:/Qt/6.7.2/mingw_64/include/QtGui/qbitmap.h \
   D:/Qt/6.7.2/mingw_64/include/QtGui/qbrush.h \
