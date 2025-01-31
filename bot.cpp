@@ -14,10 +14,11 @@ Bot::Bot(QGraphicsScene * scene, QString impath)
 
     setTransformOriginPoint( pixItem->boundingRect().width()/2, pixItem->boundingRect().height()/2 );
     pixItem->setScale(30.0/pixItem->boundingRect().width());
+    this->contact_radius=15;
 
     graphicsItemGroup->addToGroup(pixItem);
 
-    this->setPos(400,400);
+    this->setPos(200,400);
 
     this->setRandomDest();
 }

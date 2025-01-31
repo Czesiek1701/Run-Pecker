@@ -29,7 +29,7 @@ public:
     //Creature& player = *creature;
     // QGraphicsScene* getQGraphicsScene();
     //QPainterPath qpp;
-    void handleContact(Creature& movCrt, QGraphicsItem& fixObj);
+    void handleContact(Creature& movCrt, const QGraphicsItem& fixObj);
     void handleContactOld(Creature& movCrt, QGraphicsItem& fixObj);
     void actualizeSceneRect();
 public slots:
