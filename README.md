@@ -1,5 +1,5 @@
 # Run-Pecker
-Qt game
+C++ Qt game prototype
 
 
 
