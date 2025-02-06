@@ -157,7 +157,7 @@ void GameBoard::handleContact(Creature& movCrt, const QGraphicsItem& fixObj)
             //QPointF p2lin = st_qtr.map(p_2); // p_2.y() not affect
 
             // to prevent corner jumps
-            if(vlin.x()<movCrt.step*0+0 || (vlin.x() > (st_qtr.map(p_2).x()-movCrt.step*0-0)))
+            if(vlin.x()<movCrt.step || (vlin.x() > (st_qtr.map(p_2).x()-movCrt.step)))
             {
                 continue;
             }
