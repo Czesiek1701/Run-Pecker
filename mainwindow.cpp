@@ -70,8 +70,8 @@ void MainWindow::close_game()
     qDebug()<<"closing game";
     if (game != nullptr)
     {
-        delete game;
-        game = nullptr;
+        game->deleteLater();
+        //game = nullptr;
     }
     qDebug()<<ui;
     ui->setupUi(this);

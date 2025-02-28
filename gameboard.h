@@ -10,6 +10,7 @@
 #include "background.h"
 #include "nonpenetratingwall.h"
 #include <QTransform>
+#include "creaturesmanager.h"
 
 class GameBoard : public QGraphicsScene
 {
@@ -22,6 +23,8 @@ public:
     QRectF sceneViewRect;
     QRectF sceneRenderRect;
 
+    CreaturesManager creaturesManager;
+
     Background *background;
     Player *player;
     std::vector<Creature*> creatures;
@@ -30,7 +33,6 @@ public:
     // QGraphicsScene* getQGraphicsScene();
     //QPainterPath qpp;
     void handleContact(Creature& movCrt, const QGraphicsItem& fixObj);
-    void handleContactOld(Creature& movCrt, QGraphicsItem& fixObj);
     void actualizeSceneRect();
 public slots:
     void doStep();

@@ -2,20 +2,21 @@
 #include <QBrush>
 
 GameBoard::GameBoard(QWidget *parentView)
-    : QGraphicsScene(parentView)
+    : QGraphicsScene(parentView),
+    creaturesManager(this)
 {
     qDebug()<<"Creating game board";
 
     background = new Background(this);
     background->setZValue(-100);
 
-    player = new Player(this, ":/data/pecker.bmp");
+    player = new Player(this);
     player->setZValue(1);
     creatures.push_back(player);
 
     for (int i=0;i<5;i++)
     {
-        creatures.push_back(new Bot(this, ":/data/bot.bmp"));
+        creatures.push_back(new Bot(this));
         creatures[i+1]->setZValue(0);
     }
 
@@ -61,7 +62,7 @@ void GameBoard::doStep()
     if(player->collidesWithItem(creatures[1],Qt::ItemSelectionMode::IntersectsItemBoundingRect))
     {
         qDebug() << "bot collison";
-        delete creatures[1];
+        creatures[1]->deleteLater();
         creatures.erase(creatures.begin()+1);
     }
 
@@ -71,60 +72,6 @@ void GameBoard::doStep()
     }
 
     actualizeSceneRect();
-}
-
-void GameBoard::handleContactOld(Creature& movCrt, QGraphicsItem& fixObj)
-{
-    for (int i=0; i<fixObj.shape().elementCount()-1; i++ )
-    {
-        QPainterPath qpp;
-        qpp.moveTo(fixObj.shape().elementAt(i));
-        qpp.lineTo(fixObj.shape().elementAt(i+1));
-
-        // find collision sides of fixObj
-        if ( movCrt.collidesWithPath( movCrt.mapFromItem(&fixObj ,qpp)) )
-        {
-            // in fixObj coords
-            QPointF p_1 = QPointF(qpp.elementAt(0));
-            QPointF p_c = fixObj.mapFromItem(&movCrt, movCrt.boundingRect().center());
-            QPointF p_2 = QPointF(qpp.elementAt(1));
-
-            // TO LINE COORDS
-            p_c-=p_1;
-            p_2-=p_1;
-            qreal alpha = QLineF({0,0},p_2).angle()*3.14159/180;
-            qreal sin_alpha = std::sin(alpha);
-            qreal cos_alpha = std::cos(alpha);
-            QPointF vlin = {
-                            (p_c.x()*cos_alpha-1*p_c.y()*sin_alpha),
-                            (+1*p_c.x()*sin_alpha+p_c.y()*cos_alpha)+ movCrt.contact_radius
-                        };
-            // to prevent corner jumps
-            if(vlin.x()<movCrt.step+1 || (vlin.x() > (p_2.x()*cos_alpha-1*p_2.y()*sin_alpha)-movCrt.step-1))
-            {
-                continue;
-            }
-
-            // TO WALL ITEM COORDS
-            QPointF vloc = {
-                (vlin.y())*sin_alpha,       //0*vlin.x()*cos_alpha+(vlin.y())*sin_alpha,
-                (vlin.y())*cos_alpha        //0*(-1)*vlin.x()*sin_alpha+(vlin.y())*cos_alpha
-            };
-
-            // TO SCENE COORDS
-            QPointF vg = -1*fixObj.mapToScene(vloc)+fixObj.pos();
-
-            // CHECK DEPTH
-            if(vlin.y()>(0))
-            {
-                movCrt.moveBy(vg.x(),vg.y());
-                qDebug() << vlin;
-                qDebug() << vloc;
-                qDebug() << vg;
-            }
-
-        }
-    }
 }
 
 void GameBoard::handleContact(Creature& movCrt, const QGraphicsItem& fixObj)

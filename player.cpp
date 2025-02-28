@@ -1,5 +1,10 @@
 #include "player.h"
 
+Player::Player(QGraphicsScene * scene )
+    :Player(scene,":/data/pecker.bmp")
+{
+}
+
 Player::Player(QGraphicsScene * scene, QString impath)
     : Creature{scene}
 {
