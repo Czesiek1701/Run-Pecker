@@ -22,7 +22,7 @@ NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene, QRectF qrf)
 
     qDebug() << "Creating NonPenWall";
     qRectF = qrf;
-    this->setRotation(qRectF.width()*2+qRectF.height()*3);
+    //this->setRotation(qRectF.width()*2+qRectF.height()*3);
 }
 
 // QPainterPath NonPenetratingWall::shape() const
