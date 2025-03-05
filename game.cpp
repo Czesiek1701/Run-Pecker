@@ -4,6 +4,8 @@
 #include "gameboard.h"
 #include "game.h"
 
+const int TIMESTAMP = 1000/120; // 1000[ms]/x[Hz]
+
 // map, map cell, map save, map background, colliding object, egg,
 
 Game::Game(QWidget * gamePageParent):

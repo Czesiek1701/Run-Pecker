@@ -2,7 +2,7 @@
 #include "qpainter.h"
 
 NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene)
-    : IMapObject(scene)
+    : MapEntity(scene)
 {
     this->setObjectName("wall");
 
@@ -16,7 +16,7 @@ NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene)
 
 
 NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene, QRectF qrf)
-    : IMapObject(scene)
+    : MapEntity(scene)
 {
     this->setObjectName("wall");
 

@@ -3,7 +3,7 @@
 
 GameBoard::GameBoard(QWidget *parentView)
     : QGraphicsScene(parentView),
-    contactManager(creatures, fixedObjects)
+    contactManager()
 {
     qDebug()<<"Creating game board";
 
@@ -16,10 +16,15 @@ GameBoard::GameBoard(QWidget *parentView)
     player->setZValue(1);
     creatures.push_back(player);
 
+    contactManager.addMovable(player);
+
+
+
     for (int i=0;i<5;i++)
     {
         creatures.push_back(new Bot(this));
         creatures[i+1]->setZValue(0);
+        //contactManager.addMovable(*(creatures.end()-1));
     }
 
 
@@ -27,19 +32,25 @@ GameBoard::GameBoard(QWidget *parentView)
 
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1000)) );
     (*(fixedObjects.end()-1))->setPos(-200,-200);
+    //contactManager.addStable(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1000,100)) );
     (*(fixedObjects.end()-1))->setPos(-200,-200);
+    //contactManager.addStable(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1200)) );
     (*(fixedObjects.end()-1))->setPos(800,-200);
+    //contactManager.addStable(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1200,100)) );
     (*(fixedObjects.end()-1))->setPos(-200,800);
+    //contactManager.addStable(*(fixedObjects.end()-1));
+
+    fixedObjects[0]->deleteLater();
     // fixedObjects[0]->moveBy(-100,0);
     //qpp.moveTo(200,0);
     //qpp.lineTo(200,200);
     //qDebug()<<qpp;
 
-    contactManager.movables = creatures;
-    contactManager.stables = fixedObjects;
+    //contactManager.movables = creatures;
+    //contactManager.stables = fixedObjects;
 
     sceneViewRect = QRectF(0,0,850*2,400*2);
     background->renderBoundingRect = QRectF(0,0,
@@ -62,7 +73,7 @@ void GameBoard::doStep()
     //         }
     //     }
     // }
-    contactManager.handleContacts();
+    //contactManager.handle();
 
     if(creatures.size()>1)
     {

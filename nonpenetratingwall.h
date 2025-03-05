@@ -1,9 +1,9 @@
 #ifndef NONPENETRATINGWALL_H
 #define NONPENETRATINGWALL_H
-#include "imapobject.h"
+#include "mapentity.h"
 #include <QGraphicsRectItem>
 
-class NonPenetratingWall : public IMapObject
+class NonPenetratingWall : public MapEntity
 {
 public:
     NonPenetratingWall(QGraphicsScene * scene);

@@ -6,14 +6,14 @@
 #include <QPoint>
 #include <bitset>
 #include <cmath>
-#include "imapobject.h"
+#include "mapentity.h"
 
-extern int TIMESTAMP;
+extern const int TIMESTAMP;
 extern double PI;
 
-class Creature : public IMapObject
+class Creature : public MapEntity
 {
-    //Q_OBJECT
+
 public:
     Creature(QGraphicsScene * scene);
     virtual ~Creature();
@@ -28,7 +28,7 @@ public:
     int vel = 300; //  pix/s
     int step = int(TIMESTAMP*vel/1000.0);
 
-    void selfMove();
+    void selfMove( );
     void updateAngle();
 
     qreal contact_radius=10; //default

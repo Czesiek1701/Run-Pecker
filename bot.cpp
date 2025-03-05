@@ -3,6 +3,10 @@
 
 int Bot::static_bot_rand;
 
+Bot::Bot(QGraphicsScene * scene)
+    :Bot(scene, ":/data/bot.bmp")
+{}
+
 Bot::Bot(QGraphicsScene * scene, QString impath)
     : Creature{scene}
 {

@@ -2,7 +2,7 @@
 // #include "game.h"
 
 Creature::Creature(QGraphicsScene * scene)
-    :IMapObject(scene)
+    :MapEntity(scene)
 {
     qDebug() << "Creating creature";
 }

@@ -7,6 +7,7 @@ class Bot : public Creature
 {
     //Q_OBJECT
 public:
+    Bot(QGraphicsScene * scene);
     Bot(QGraphicsScene * scene, QString impath);
 
     QImage image;
