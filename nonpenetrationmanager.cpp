@@ -1,11 +1,23 @@
-#include "contactmanager.h"
+#include "nonpenetrationmanager.h"
 #include <numeric>
 #include <vector>
 
-ContactManager::ContactManager()
+NonPenetrationManager::NonPenetrationManager()
 {}
 
-void ContactManager::handleContact(Creature& movCrt, const QGraphicsItem& fixObj)
+NonPenetrationManager::~NonPenetrationManager()
+{
+    for(auto& c : movables)
+    {
+        c->eraseManager(this);
+    }
+    for(auto& c : stables)
+    {
+        c->eraseManager(this);
+    }
+}
+
+void NonPenetrationManager::handleContact(Creature& movCrt, const QGraphicsItem& fixObj)
 {
     static QTransform st_qtr;
 
@@ -60,7 +72,7 @@ void ContactManager::handleContact(Creature& movCrt, const QGraphicsItem& fixObj
     }
 }
 
-void ContactManager::handle()
+void NonPenetrationManager::handle()
 {
     for(Creature* c: movables)
     {
@@ -74,18 +86,18 @@ void ContactManager::handle()
     }
 }
 
-void ContactManager::addMovable(Creature* c)
+void NonPenetrationManager::addMovable(Creature* c)
 {
     movables.insert(c);
     c->insertManager(this);
 }
-void ContactManager::addStable(MapEntity* e)
+void NonPenetrationManager::addStable(MapEntity* e)
 {
     stables.insert(e);
     e->insertManager(this);
 }
 
-void ContactManager::erase(MapEntity* el)
+void NonPenetrationManager::erase(MapEntity* el)
 {
     auto cit = std::find_if(movables.begin(),movables.end(), [el](auto& r){ return el == r; } );
     if(cit != movables.end())

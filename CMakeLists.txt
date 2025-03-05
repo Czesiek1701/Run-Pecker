@@ -34,8 +34,12 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         player.h player.cpp
         bot.h bot.cpp
         background.h background.cpp
-        imapobject.h imapobject.cpp
+        mapentity.h mapentity.cpp
         nonpenetratingwall.h nonpenetratingwall.cpp
+        nonpenetrationmanager.h nonpenetrationmanager.cpp
+        ibehaviourmanager.h ibehaviourmanager.cpp
+        playerfightmanager.h playerfightmanager.cpp
+
 
 
 

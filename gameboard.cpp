@@ -17,31 +17,34 @@ GameBoard::GameBoard(QWidget *parentView)
     creatures.push_back(player);
 
     contactManager.addMovable(player);
-
+    playerFightManager.setPlayer(player);
 
 
     for (int i=0;i<5;i++)
     {
         creatures.push_back(new Bot(this));
         creatures[i+1]->setZValue(0);
-        //contactManager.addMovable(*(creatures.end()-1));
+        contactManager.addMovable(*(creatures.end()-1));
+        playerFightManager.addMovable(*(creatures.end()-1));
     }
 
 
     qDebug()<<12;
 
+    // temporary
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1000)) );
     (*(fixedObjects.end()-1))->setPos(-200,-200);
-    //contactManager.addStable(*(fixedObjects.end()-1));
+    contactManager.addStable(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1000,100)) );
     (*(fixedObjects.end()-1))->setPos(-200,-200);
-    //contactManager.addStable(*(fixedObjects.end()-1));
+    contactManager.addStable(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1200)) );
     (*(fixedObjects.end()-1))->setPos(800,-200);
-    //contactManager.addStable(*(fixedObjects.end()-1));
+    (*(fixedObjects.end()-1))->setRotation(30);
+    contactManager.addStable(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1200,100)) );
     (*(fixedObjects.end()-1))->setPos(-200,800);
-    //contactManager.addStable(*(fixedObjects.end()-1));
+    contactManager.addStable(*(fixedObjects.end()-1));
 
     fixedObjects[0]->deleteLater();
     // fixedObjects[0]->moveBy(-100,0);
@@ -63,28 +66,19 @@ GameBoard::GameBoard(QWidget *parentView)
 
 void GameBoard::doStep()
 {
-    // for(Creature* c: creatures)
+    contactManager.handle();
+
+    playerFightManager.handle(); // MEMORY LEAK
+
+    // if(creatures.size()>1)
     // {
-    //     for(QGraphicsItem* w: fixedObjects)
+    //     if(player->collidesWithItem(creatures[1],Qt::ItemSelectionMode::IntersectsItemBoundingRect))
     //     {
-    //         if( w->collidesWithItem( c ) )
-    //         {
-    //             handleContact(*c, *w);
-    //         }
+    //         qDebug() << "bot collison";
+    //         creatures[1]->deleteLater();
+    //         creatures.erase(creatures.begin()+1);
     //     }
     // }
-    //contactManager.handle();
-
-    if(creatures.size()>1)
-    {
-        if(player->collidesWithItem(creatures[1],Qt::ItemSelectionMode::IntersectsItemBoundingRect))
-        {
-            qDebug() << "bot collison";
-            creatures[1]->deleteLater();
-            creatures.erase(creatures.begin()+1);
-
-        }
-    }
 
     for(Creature* c:creatures)
     {

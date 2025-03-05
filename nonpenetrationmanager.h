@@ -1,5 +1,5 @@
-#ifndef CONTACTMANAGER_H
-#define CONTACTMANAGER_H
+#ifndef NONPENETRATIONMANAGER_H
+#define NONPENETRATIONMANAGER_H
 
 #include <vector>
 #include "creature.h"
@@ -8,15 +8,15 @@
 #include "ibehaviourmanager.h"
 #include <unordered_set>
 
-class ContactManager : public IBehaviourManager
+class NonPenetrationManager : public IBehaviourManager
 {
 private:
     std::unordered_set<Creature*> movables;
     std::unordered_set<MapEntity*> stables;
 
 public:
-    ContactManager();
-    virtual ~ContactManager() = default;
+    NonPenetrationManager();
+    virtual ~NonPenetrationManager();
 
     //std::vector<Creature*> movables;
     //std::vector<NonPenetratingWall*> stables;
@@ -32,4 +32,4 @@ public:
 
 };
 
-#endif // CONTACTMANAGER_H
+#endif // NONPENETRATIONMANAGER_H

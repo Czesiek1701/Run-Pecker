@@ -10,7 +10,8 @@
 #include "background.h"
 #include "nonpenetratingwall.h"
 #include <QTransform>
-#include "contactmanager.h"
+#include "nonpenetrationmanager.h"
+#include "playerfightmanager.h"
 
 class GameBoard : public QGraphicsScene
 {
@@ -23,7 +24,8 @@ public:
     QRectF sceneViewRect;
     QRectF sceneRenderRect;
 
-    ContactManager contactManager;
+    NonPenetrationManager contactManager;
+    PlayerFightManager playerFightManager;
 
     Background *background;
     Player *player;
