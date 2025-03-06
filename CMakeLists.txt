@@ -9,8 +9,10 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 COMPONENTS Core Test REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Core Test Gui Widgets REQUIRED)
+
+enable_testing()
 
 set(PROJECT_SOURCES
         main.cpp
@@ -41,12 +43,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         playerfightmanager.h playerfightmanager.cpp
 
 
-
-
-
-
-
     )
+
+
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET pecker_vt APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
 #                 ${CMAKE_CURRENT_SOURCE_DIR}/android)
@@ -65,7 +64,9 @@ else()
     endif()
 endif()
 
+
 target_link_libraries(pecker_vt PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an
@@ -91,3 +92,19 @@ install(TARGETS pecker_vt
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(pecker_vt)
 endif()
+
+
+# ===========================  TESTS  =========================================================
+
+enable_testing()
+
+qt_add_executable(mytest
+
+    tst_GameBoard.cpp
+
+)
+set_source_files_properties(tst_GameBoard.cpp PROPERTIES SKIP_AUTOMOC OFF)
+
+target_link_libraries(mytest PRIVATE Qt6::Test)
+
+add_test(NAME mytest COMMAND mytest)
