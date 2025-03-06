@@ -12,6 +12,8 @@ Game::Game(QWidget * gamePageParent):
     running(false),
     QWidget(gamePageParent)
 {
+    this->setObjectName("game");
+
     qDebug() << "Creating game... ";
 
     stackedLayout = new QStackedLayout(this);

@@ -102,9 +102,26 @@ qt_add_executable(mytest
 
     tst_GameBoard.cpp
 
+    mainwindow.cpp mainwindow.h mainwindow.ui
+    game.h game.cpp
+    resources.qrc
+    gameboard.h gameboard.cpp
+    creature.h creature.cpp
+    gamepage.h gamepage.cpp gamepage.ui
+    gamepause.h gamepause.cpp gamepause.ui
+    player.h player.cpp
+    bot.h bot.cpp
+    background.h background.cpp
+    mapentity.h mapentity.cpp
+    nonpenetratingwall.h nonpenetratingwall.cpp
+    nonpenetrationmanager.h nonpenetrationmanager.cpp
+    ibehaviourmanager.h ibehaviourmanager.cpp
+    playerfightmanager.h playerfightmanager.cpp
+
 )
 set_source_files_properties(tst_GameBoard.cpp PROPERTIES SKIP_AUTOMOC OFF)
 
+target_link_libraries(mytest PRIVATE Qt6::Widgets)
 target_link_libraries(mytest PRIVATE Qt6::Test)
 
 add_test(NAME mytest COMMAND mytest)
