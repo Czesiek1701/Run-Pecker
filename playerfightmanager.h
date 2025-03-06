@@ -5,6 +5,8 @@
 #include "creature.h"
 #include "player.h"
 
+class GameBoard;
+
 class PlayerFightManager : public IBehaviourManager
 {
 private:
@@ -18,6 +20,8 @@ public:
 
     void addMovable(Creature*);
     void setPlayer(Player*);
+
+    GameBoard* pGB;
 };
 
 #endif // PLAYERFIGHTMANAGER_H

@@ -2,35 +2,58 @@
 #include <QBrush>
 
 GameBoard::GameBoard(QWidget *parentView)
-    : QGraphicsScene(parentView),
-    contactManager()
+    : QGraphicsScene(parentView)
 {
     qDebug()<<"Creating game board";
 
-
+    playerFightManager.pGB=this;
 
     background = new Background(this);
-    background->setZValue(-100);
 
+    createPlayer();
+
+    createBots();
+
+    createWalls();
+
+    setUpViewRect();
+}
+
+void GameBoard::doStep()
+{
+    contactManager.handle();
+
+    playerFightManager.handle();
+
+    for(Creature* c:creatures)
+    {
+        c->actualize();
+    }
+
+    actualizeSceneRect();
+}
+
+void GameBoard::createPlayer()
+{
     player = new Player(this);
-    player->setZValue(1);
     creatures.push_back(player);
 
     contactManager.addMovable(player);
     playerFightManager.setPlayer(player);
+}
 
-
+void GameBoard::createBots()
+{
     for (int i=0;i<5;i++)
     {
         creatures.push_back(new Bot(this));
-        creatures[i+1]->setZValue(0);
         contactManager.addMovable(*(creatures.end()-1));
         playerFightManager.addMovable(*(creatures.end()-1));
     }
+}
 
-
-    qDebug()<<12;
-
+void GameBoard::createWalls()
+{
     // temporary
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1000)) );
     (*(fixedObjects.end()-1))->setPos(-200,-200);
@@ -45,103 +68,17 @@ GameBoard::GameBoard(QWidget *parentView)
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1200,100)) );
     (*(fixedObjects.end()-1))->setPos(-200,800);
     contactManager.addStable(*(fixedObjects.end()-1));
+}
 
-    fixedObjects[0]->deleteLater();
-    // fixedObjects[0]->moveBy(-100,0);
-    //qpp.moveTo(200,0);
-    //qpp.lineTo(200,200);
-    //qDebug()<<qpp;
-
-    //contactManager.movables = creatures;
-    //contactManager.stables = fixedObjects;
-
+void GameBoard::setUpViewRect()
+{
     sceneViewRect = QRectF(0,0,850*2,400*2);
     background->renderBoundingRect = QRectF(0,0,
-        (int)(sceneViewRect.width()*1.1),
-        (int)(sceneViewRect.height()*1.1)
-    );
-    actualizeSceneRect();
-
-}
-
-void GameBoard::doStep()
-{
-    contactManager.handle();
-
-    playerFightManager.handle(); // MEMORY LEAK
-
-    // if(creatures.size()>1)
-    // {
-    //     if(player->collidesWithItem(creatures[1],Qt::ItemSelectionMode::IntersectsItemBoundingRect))
-    //     {
-    //         qDebug() << "bot collison";
-    //         creatures[1]->deleteLater();
-    //         creatures.erase(creatures.begin()+1);
-    //     }
-    // }
-
-    for(Creature* c:creatures)
-    {
-        c->actualize();
-    }
-
+                                            (int)(sceneViewRect.width()*1.1),
+                                            (int)(sceneViewRect.height()*1.1)
+                                            );
     actualizeSceneRect();
 }
-
-// void GameBoard::handleContact(Creature& movCrt, const QGraphicsItem& fixObj)
-// {
-//     static QTransform st_qtr;
-
-//     for (int i=0; i<fixObj.shape().elementCount()-1; i++ )
-//     {
-//         static QPainterPath st_qpp;
-//         st_qpp.clear();
-//         st_qpp.moveTo(fixObj.shape().elementAt(i));
-//         st_qpp.lineTo(fixObj.shape().elementAt(i+1));
-
-//         // find collision sides of fixObj
-//         if ( movCrt.collidesWithPath( movCrt.mapFromItem(&fixObj ,st_qpp)) )
-//         {
-//             // in fixObj coords
-//             QPointF p_1 = QPointF(st_qpp.elementAt(0));
-//             QPointF p_c = fixObj.mapFromItem(&movCrt, movCrt.boundingRect().center());
-//             QPointF p_2 = QPointF(st_qpp.elementAt(1));
-
-//             // TO LINE COORDS
-//             p_c-=p_1;
-//             p_2-=p_1;
-//             qreal alpha = QLineF({0,0},p_2).angle()*3.14159/180;
-//             st_qtr.reset();
-//             st_qtr.rotateRadians(alpha);
-//             QPointF vlin = st_qtr.map(p_c)+QPointF(0,movCrt.contact_radius);
-
-//             //QPointF p2lin = st_qtr.map(p_2); // p_2.y() not affect
-
-//             // to prevent corner jumps
-//             if(vlin.x()<movCrt.step || (vlin.x() > (st_qtr.map(p_2).x()-movCrt.step)))
-//             {
-//                 continue;
-//             }
-
-//             // TO WALL ITEM COORDS
-//             st_qtr.reset();
-//             st_qtr.rotateRadians(-alpha);
-//             QPointF vloc = st_qtr.map(QPointF(0,vlin.y()));
-
-//             // TO SCENE COORDS
-//             st_qtr.reset();
-//             st_qtr.rotate(fixObj.rotation());
-//             QPointF vg = st_qtr.map(-vloc);
-
-//             // CHECK DEPTH
-//             if(vlin.y()>(0))
-//             {
-//                 movCrt.moveBy(vg.x(),vg.y());
-//             }
-
-//         }
-//     }
-// }
 
 void GameBoard::actualizeSceneRect()
 {
@@ -154,3 +91,7 @@ void GameBoard::actualizeSceneRect()
     background->renderBoundingRect.moveCenter(player->center());
 }
 
+void GameBoard::removeCreature(Creature* c)
+{
+    creatures.erase(std::remove(creatures.begin(), creatures.end(), c), creatures.end());
+}

@@ -16,11 +16,7 @@
 class GameBoard : public QGraphicsScene
 {
     Q_OBJECT
-public:
-    GameBoard(QWidget* parentView);
-    ~GameBoard() {}
 
-    //QPointF sceneRectSize{800,450};
     QRectF sceneViewRect;
     QRectF sceneRenderRect;
 
@@ -28,14 +24,24 @@ public:
     PlayerFightManager playerFightManager;
 
     Background *background;
-    Player *player;
     std::vector<Creature*> creatures;
     std::vector<NonPenetratingWall*> fixedObjects;
-    //Creature& player = *creature;
-    // QGraphicsScene* getQGraphicsScene();
-    //QPainterPath qpp;
-    //void handleContact(Creature& movCrt, const QGraphicsItem& fixObj);
+
+    void createPlayer();
+    void createWalls();
+    void createBots();
+    void setUpViewRect();
+
+
+public:
+    GameBoard(QWidget* parentView);
+    ~GameBoard() {}
+
+    Player *player;
+    void removeCreature(Creature*);
     void actualizeSceneRect();
+
+
 public slots:
     void doStep();
 };

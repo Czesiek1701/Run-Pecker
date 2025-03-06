@@ -74,6 +74,7 @@ void MainWindow::close_game()
         //game = nullptr;
     }
     qDebug()<<ui;
+
     ui->setupUi(this);
     ui->stackedWidget->setCurrentWidget(ui->page_start);
     qDebug()<<ui;

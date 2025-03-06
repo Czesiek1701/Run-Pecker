@@ -9,6 +9,8 @@ Background::Background(QGraphicsScene *scene)
     qDebug()<<"Creating mapcontrol";
     scene->addItem(this);
     graphicsItemGroup = new QGraphicsItemGroup(this);
+
+    this->setZValue(-100);
 }
 
 Background::~Background()

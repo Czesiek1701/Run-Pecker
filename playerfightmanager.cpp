@@ -1,4 +1,5 @@
 #include "playerfightmanager.h"
+#include "gameboard.h"
 
 PlayerFightManager::PlayerFightManager() {}
 
@@ -10,6 +11,7 @@ void PlayerFightManager::handle()
         {
             qDebug() << "bot collison";
             (*movables.begin())->deleteLater();
+            pGB->removeCreature(*movables.begin());
         }
     }
 }

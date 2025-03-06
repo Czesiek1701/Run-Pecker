@@ -3,6 +3,7 @@
 Player::Player(QGraphicsScene * scene )
     :Player(scene,":/data/pecker.bmp")
 {
+    this->setZValue(1);
 }
 
 Player::Player(QGraphicsScene * scene, QString impath)
