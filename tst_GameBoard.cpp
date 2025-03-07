@@ -13,6 +13,8 @@
 #include "gameboard.h"
 #include "mainwindow.h"
 
+#include "game.h"
+
 class tst_GameBoard : public QObject
 {
     Q_OBJECT
@@ -75,6 +77,30 @@ private slots:
         QTest::qWait(10);
 
         QVERIFY(!mainWindow.isVisible());
+
+    }
+
+    void testDoStepPerformance()
+    {
+        Game game(nullptr);
+
+        game.gameTimer->stop();
+
+        QElapsedTimer timer;
+        timer.start();  // Rozpoczęcie pomiaru czasu
+
+
+        for (int i=0; i<1000; i++)
+        {
+            game.gamePage->gameBoard->doStep();
+        }
+
+        // Sprawdzanie czasu
+        qint64 elapsed = timer.nsecsElapsed();
+        qDebug() << "Czas wykonania doStep(): " << elapsed / 1000000.0<< " μs";
+
+        QVERIFY(elapsed < 500e6);  // Zakładając, że wykonanie powinno być poniżej 500ms
+
 
     }
 

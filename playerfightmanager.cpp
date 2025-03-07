@@ -9,7 +9,7 @@ void PlayerFightManager::handle()
     {
         if(player->collidesWithItem(me,Qt::ItemSelectionMode::IntersectsItemBoundingRect))
         {
-            qDebug() << "bot collison";
+            //qDebug() << "bot collison";
             me->deleteLater();
             pGB->removeCreature(me);
         }
