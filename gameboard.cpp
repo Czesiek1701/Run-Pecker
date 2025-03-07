@@ -21,7 +21,7 @@ GameBoard::GameBoard(QWidget *parentView)
 
 void GameBoard::doStep()
 {
-    contactManager.handle();
+    nonPenetrationManager.handle();
 
     playerFightManager.handle();
 
@@ -39,7 +39,7 @@ void GameBoard::createPlayer()
     creatures.push_back(player);
 
     //contactManager.addMovable(player);
-    contactManager.mmovables.add(player);
+    nonPenetrationManager.mmovables.add(player);
     playerFightManager.setPlayer(player);
 }
 
@@ -49,7 +49,7 @@ void GameBoard::createBots()
     {
         creatures.push_back(new Bot(this));
         //contactManager.addMovable(*(creatures.end()-1));
-        contactManager.mmovables.add(*(creatures.end()-1));
+        nonPenetrationManager.mmovables.add(*(creatures.end()-1));
         //playerFightManager.addMovable(*(creatures.end()-1));
         playerFightManager.mmovables.add(*(creatures.end()-1));
     }
@@ -61,20 +61,20 @@ void GameBoard::createWalls()
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1000)) );
     (*(fixedObjects.end()-1))->setPos(-200,-200);
     //contactManager.addStable(*(fixedObjects.end()-1));
-    contactManager.mmovables.add(*(fixedObjects.end()-1));
+    nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1000,100)) );
     (*(fixedObjects.end()-1))->setPos(-200,-200);
     // contactManager.addStable(*(fixedObjects.end()-1));
-    contactManager.mmovables.add(*(fixedObjects.end()-1));
+    nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1200)) );
     (*(fixedObjects.end()-1))->setPos(800,-200);
     (*(fixedObjects.end()-1))->setRotation(30);
     // contactManager.addStable(*(fixedObjects.end()-1));
-    contactManager.mmovables.add(*(fixedObjects.end()-1));
+    nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
     fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1200,100)) );
     (*(fixedObjects.end()-1))->setPos(-200,800);
     // contactManager.addStable(*(fixedObjects.end()-1));
-    contactManager.mmovables.add(*(fixedObjects.end()-1));
+    nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
 }
 
 void GameBoard::setUpViewRect()
@@ -98,7 +98,7 @@ void GameBoard::actualizeSceneRect()
     background->renderBoundingRect.moveCenter(player->center());
 }
 
-void GameBoard::removeCreature(Creature* c)
+void GameBoard::removeCreature(MapEntity* c)
 {
     creatures.erase(std::remove(creatures.begin(), creatures.end(), c), creatures.end());
 }

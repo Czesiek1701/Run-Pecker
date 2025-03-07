@@ -33,6 +33,8 @@ public:
 
     qreal contact_radius=10; //default
 
+    void handleContact(const QGraphicsItem& fixObj);
+
 public slots:
     virtual void actualize();
     //void setWishx(int d);

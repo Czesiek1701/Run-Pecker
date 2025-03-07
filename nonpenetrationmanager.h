@@ -27,7 +27,7 @@ public:
     //void addMovable(Creature*);
     //void addStable(MapEntity*);
 
-    void handleContact(Creature& movCrt, const QGraphicsItem& fixObj);
+    //void handleContact(Creature& movCrt, const QGraphicsItem& fixObj);
     void handle();
 
     //void erase(Creature*);

@@ -5,13 +5,13 @@ PlayerFightManager::PlayerFightManager() {}
 
 void PlayerFightManager::handle()
 {
-    if(mmovables.getElements().size()>1)
+    for(auto& me: mmovables.getElements())
     {
-        if(player->collidesWithItem(*mmovables.getElements().begin(),Qt::ItemSelectionMode::IntersectsItemBoundingRect))
+        if(player->collidesWithItem(me,Qt::ItemSelectionMode::IntersectsItemBoundingRect))
         {
             qDebug() << "bot collison";
-            //(*mmovables.getElements().begin())->deleteLater();       // !!!!!!!
-            //pGB->removeCreature(*mmovables.getElements().begin());   // VISITOR
+            me->deleteLater();
+            pGB->removeCreature(me);
         }
     }
 }

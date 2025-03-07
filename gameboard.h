@@ -20,7 +20,7 @@ class GameBoard : public QGraphicsScene
     QRectF sceneViewRect;
     QRectF sceneRenderRect;
 
-    NonPenetrationManager contactManager;
+    NonPenetrationManager nonPenetrationManager;
     PlayerFightManager playerFightManager;
 
     Background *background;
@@ -38,7 +38,7 @@ public:
     ~GameBoard() {}
 
     Player *player;
-    void removeCreature(Creature*);
+    void removeCreature(MapEntity*);
     void actualizeSceneRect();
 
 
