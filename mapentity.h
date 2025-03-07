@@ -6,13 +6,14 @@
 #include <unordered_set>
 
 #include "ibehaviourmanager.h"
+#include "entityregistry.h"
 
-class IBehaviourManager;
+//class EntityContainer;
 
 class MapEntity : public QGraphicsObject
 {
 private:
-    std::unordered_set<IBehaviourManager*> managers;
+    std::unordered_set<EntityContainer*> managers;
 public:
     MapEntity(QGraphicsScene * scene);
     virtual ~MapEntity();
@@ -20,8 +21,8 @@ public:
     //QRectF boundingRectF;
     QGraphicsItemGroup *graphicsItemGroup;
 
-    void insertManager(IBehaviourManager*);
-    void eraseManager(IBehaviourManager*);
+    void insertManager(EntityContainer*);
+    void eraseManager(EntityContainer*);
     //virtual QRectF boundingRect() const;
     //virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
 };

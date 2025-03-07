@@ -1,21 +1,20 @@
 #include "nonpenetrationmanager.h"
-#include <numeric>
-#include <vector>
 
 NonPenetrationManager::NonPenetrationManager()
+    :mmovables()
 {}
 
-NonPenetrationManager::~NonPenetrationManager()
-{
-    for(auto& c : movables)
-    {
-        c->eraseManager(this);
-    }
-    for(auto& c : stables)
-    {
-        c->eraseManager(this);
-    }
-}
+// NonPenetrationManager::~NonPenetrationManager()
+// {
+//     // for(auto& c : movables)
+//     // {
+//     //     c->eraseManager(this);
+//     // }
+//     // for(auto& c : stables)
+//     // {
+//     //     c->eraseManager(this);
+//     // }
+// }
 
 void NonPenetrationManager::handleContact(Creature& movCrt, const QGraphicsItem& fixObj)
 {
@@ -74,41 +73,45 @@ void NonPenetrationManager::handleContact(Creature& movCrt, const QGraphicsItem&
 
 void NonPenetrationManager::handle()
 {
-    for(Creature* c: movables)
+    for(MapEntity* c: mmovables.getElements())
     {
-        for(MapEntity* w: stables)
+        for(MapEntity* w: mstables.getElements())
         {
             if( w->collidesWithItem( c ) )
             {
-                handleContact(*c, *w);
+                //handleContact( static_cast<Creature>(*c) , *w);     // VISITOR
             }
         }
     }
 }
 
-void NonPenetrationManager::addMovable(Creature* c)
-{
-    movables.insert(c);
-    c->insertManager(this);
-}
-void NonPenetrationManager::addStable(MapEntity* e)
-{
-    stables.insert(e);
-    e->insertManager(this);
-}
+// void NonPenetrationManager::addMovable(Creature* c)
+// {
+//     //movables.insert(c);
+//     //c->insertManager(this);
 
-void NonPenetrationManager::erase(MapEntity* el)
-{
-    auto cit = std::find_if(movables.begin(),movables.end(), [el](auto& r){ return el == r; } );
-    if(cit != movables.end())
-    {
-        movables.erase(cit);
-    }
+//     mmovables.add(c);
+// }
+// void NonPenetrationManager::addStable(MapEntity* e)
+// {
+//     // stables.insert(e);
+//     // e->insertManager(this);
 
-    auto sit = std::find_if(stables.begin(),stables.end(), [el](auto& r){ return el == r; } );
-    if(sit != stables.end())
-    {
-        stables.erase(sit);
-    }
-}
+//     mstables.add(e);
+// }
+
+// void NonPenetrationManager::erase(MapEntity* el)
+// {
+//     // auto cit = std::find_if(movables.begin(),movables.end(), [el](auto& r){ return el == r; } );
+//     // if(cit != movables.end())
+//     // {
+//     //     movables.erase(cit);
+//     // }
+
+//     // auto sit = std::find_if(stables.begin(),stables.end(), [el](auto& r){ return el == r; } );
+//     // if(sit != stables.end())
+//     // {
+//     //     stables.erase(sit);
+//     // }
+// }
 

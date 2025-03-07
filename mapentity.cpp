@@ -1,4 +1,5 @@
 #include "mapentity.h"
+#include "entityregistry.h"
 
 MapEntity::MapEntity(QGraphicsScene * scene)
     :QGraphicsObject()
@@ -13,18 +14,18 @@ MapEntity::~MapEntity()
     for(auto* m : managers)
     {
         qDebug()<<"deleting manager";
-        m->erase(this);
+        m->remove(this);
         qDebug()<<"manager deleted";
     }
 }
 
 
-void MapEntity::insertManager(IBehaviourManager* m)
+void MapEntity::insertManager(EntityContainer* m)
 {
     managers.insert(m);
 }
 
-void MapEntity::eraseManager(IBehaviourManager* m)
+void MapEntity::eraseManager(EntityContainer* m)
 {
     managers.erase(m);
 }

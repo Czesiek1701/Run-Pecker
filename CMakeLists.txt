@@ -41,6 +41,8 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         nonpenetrationmanager.h nonpenetrationmanager.cpp
         ibehaviourmanager.h ibehaviourmanager.cpp
         playerfightmanager.h playerfightmanager.cpp
+        entityregistry.h
+        entityregistry.cpp
 
 
     )
@@ -117,6 +119,9 @@ qt_add_executable(mytest
     nonpenetrationmanager.h nonpenetrationmanager.cpp
     ibehaviourmanager.h ibehaviourmanager.cpp
     playerfightmanager.h playerfightmanager.cpp
+    entityregistry.h
+    entityregistry.cpp
+
 
 )
 set_source_files_properties(tst_GameBoard.cpp PROPERTIES SKIP_AUTOMOC OFF)
