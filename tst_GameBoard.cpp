@@ -1,5 +1,6 @@
 #include <QObject>
 #include <QtTest/QtTest>
+#include <QTest>
 #include <QDebug>
 
 #include <QMainWindow>
@@ -34,10 +35,6 @@ private slots:
     void testOpenCloseApp()
     {
 
-        int argc = 1;
-        char *argv[] = { "" };
-        QApplication app(argc, argv);
-
         MainWindow mainWindow(nullptr);
         mainWindow.show();
 
@@ -56,11 +53,13 @@ private slots:
 
         // Klikamy przycisk "Start" - symulujemy uruchomienie gry
         QTest::mouseClick(startButton, Qt::LeftButton);
+        QTest::qWait(10);
 
         auto *gmptr = mainWindow.findChild<Game *>("game");
         QVERIFY(gmptr != nullptr);
 
         QTest::keyClick(&mainWindow, Qt::Key_P);
+        QTest::qWait(10);
         GamePause* gps = mainWindow.findChild<GamePause*>("GamePause");
         QVERIFY(gps != nullptr);
 
@@ -68,18 +67,22 @@ private slots:
         QVERIFY(exitButton != nullptr);
 
         QTest::mouseClick(exitButton, Qt::LeftButton);
+        QTest::qWait(10);
 
         QPushButton *closeButton = mainWindow.findChild<QPushButton *>("pushButton_Close");
         QVERIFY(closeButton != nullptr);
         QTest::mouseClick(closeButton, Qt::LeftButton);
+        QTest::qWait(10);
 
-        QTest::qWait(200);
-        QCoreApplication::quit();
-        QTest::qWait(1000);
+        QVERIFY(!mainWindow.isVisible());
+
     }
 
     void cleanupTestCase()
     {
+        if (QCoreApplication::instance() == nullptr) {
+            qDebug() << "Aplikacja już nie działa!";
+        }
         qDebug() << "cleaning sth";
     }
 };

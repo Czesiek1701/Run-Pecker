@@ -16,7 +16,8 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     qDebug()<<"MW destructor";
-    delete ui;
+    //delete ui;
+    qDebug()<<"MW destructed";
 }
 
 void MainWindow::on_pushButton_NewGmae_clicked()
