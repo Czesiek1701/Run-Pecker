@@ -41,8 +41,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         nonpenetrationmanager.h nonpenetrationmanager.cpp
         ibehaviourmanager.h ibehaviourmanager.cpp
         playerfightmanager.h playerfightmanager.cpp
-        entityregistry.h
-        entityregistry.cpp
+        entityregistry.h entityregistry.cpp
+        gameboardbuilder.h gameboardbuilder.cpp
+        gameboarddirector.h gameboarddirector.cpp
 
 
     )
@@ -121,6 +122,8 @@ qt_add_executable(mytest
     playerfightmanager.h playerfightmanager.cpp
     entityregistry.h
     entityregistry.cpp
+    gameboardbuilder.h gameboardbuilder.cpp
+    gameboarddirector.h gameboarddirector.cpp
 
 
 )

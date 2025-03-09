@@ -15,9 +15,9 @@ private:
     Player* player;
 public:
 
-    EntityContainer mmovables;
+    EntityRegistry mmovables;
 
-    PlayerFightManager();
+    PlayerFightManager(GameBoard*);
     //~PlayerFightManager();
     virtual void handle();
     //virtual void erase(MapEntity*);

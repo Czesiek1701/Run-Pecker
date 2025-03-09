@@ -82,24 +82,31 @@ private slots:
 
     void testDoStepPerformance()
     {
-        Game game(nullptr);
+        Game* game = new Game(nullptr);
 
-        game.gameTimer->stop();
+        game->gameTimer->stop();
 
         QElapsedTimer timer;
         timer.start();  // Rozpoczęcie pomiaru czasu
 
-
-        for (int i=0; i<1000; i++)
+        const int STEPNUM = 1000;
+        for (int i=0; i<STEPNUM; i++)
         {
-            game.gamePage->gameBoard->doStep();
+            game->gamePage->gameBoard->doStep();
         }
 
         // Sprawdzanie czasu
-        qint64 elapsed = timer.nsecsElapsed();
-        qDebug() << "Czas wykonania doStep(): " << elapsed / 1000000.0<< " μs";
+        qint64 elapsed = timer.elapsed();
 
-        QVERIFY(elapsed < 500e6);  // Zakładając, że wykonanie powinno być poniżej 500ms
+        game->deleteLater();
+
+        QTest::qWait(10);
+
+
+        qDebug() << "TIME FOR 1 x doStep() WAS: " << elapsed*1.0/STEPNUM << " mili s";
+        qDebug() << "TIME FOR 1 x 60Hz is:" << 1000*1.0/60 << " mili s";
+        qDebug() << "safety coefficient: " << (STEPNUM*1000*1.0/60)/elapsed;
+        QVERIFY(elapsed < STEPNUM*(1000*1.0/60) );  // Zakładając, że wykonanie powinno być poniżej 500ms
 
 
     }

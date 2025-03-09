@@ -10,14 +10,14 @@
 
 class MapEntity;
 
-class EntityContainer
+class EntityRegistry
 {
 private:
     std::unordered_set<MapEntity*> elements;
     //IBehaviourManager* owner;
 public:
-    EntityContainer()=default;
-    ~EntityContainer();
+    EntityRegistry()=default;
+    ~EntityRegistry();
 
     void add(MapEntity* sn);
 

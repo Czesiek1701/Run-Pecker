@@ -1,5 +1,7 @@
 #include "gamepage.h"
 #include "ui_gamepage.h"
+#include "gameboardbuilder.h"
+#include "gameboarddirector.h"
 
 GamePage::GamePage(QWidget *parent)
     : QWidget(parent)
@@ -12,8 +14,17 @@ GamePage::GamePage(QWidget *parent)
 
     ui->boardView->setBackgroundBrush(QBrush(Qt::darkGreen));
 
-    gameBoard = new GameBoard(ui->boardView);
-    ui->boardView->setScene((QGraphicsScene*)gameBoard);
+    //gameBoard = new GameBoard(ui->boardView);
+    //ui->boardView->setScene((QGraphicsScene*)gameBoard);
+
+    //gameBoard->deleteLater();
+    // GameBoardBuilder gbb(ui->boardView);
+    // gbb.addBot();
+    // gbb.addWall(QPointF(-200,-200));
+    // gbb.addWall(QPointF(-400,-400));
+
+    gameBoard = GameBoardDirector::buildForManualTest(ui->boardView);
+    ui->boardView->setScene(static_cast<QGraphicsScene*>(gameBoard));
 
     ui->boardView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     ui->boardView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

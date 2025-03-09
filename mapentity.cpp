@@ -4,7 +4,7 @@
 MapEntity::MapEntity(QGraphicsScene * scene)
     :QGraphicsObject()
 {
-    qDebug() << "Creating MapObject";
+    //qDebug() << "Creating MapObject";
     scene->addItem(this);
     graphicsItemGroup = new QGraphicsItemGroup(this);
 }
@@ -13,19 +13,19 @@ MapEntity::~MapEntity()
 {
     for(auto* m : managers)
     {
-        qDebug()<<"deleting manager";
+        //qDebug()<<"deleting manager";
         m->remove(this);
-        qDebug()<<"manager deleted";
+        //qDebug()<<"manager deleted";
     }
 }
 
 
-void MapEntity::insertManager(EntityContainer* m)
+void MapEntity::insertManager(EntityRegistry* m)
 {
     managers.insert(m);
 }
 
-void MapEntity::eraseManager(EntityContainer* m)
+void MapEntity::eraseManager(EntityRegistry* m)
 {
     managers.erase(m);
 }

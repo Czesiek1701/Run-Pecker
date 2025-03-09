@@ -13,7 +13,7 @@
 class MapEntity : public QGraphicsObject
 {
 private:
-    std::unordered_set<EntityContainer*> managers;
+    std::unordered_set<EntityRegistry*> managers;
 public:
     MapEntity(QGraphicsScene * scene);
     virtual ~MapEntity();
@@ -21,8 +21,8 @@ public:
     //QRectF boundingRectF;
     QGraphicsItemGroup *graphicsItemGroup;
 
-    void insertManager(EntityContainer*);
-    void eraseManager(EntityContainer*);
+    void insertManager(EntityRegistry*);
+    void eraseManager(EntityRegistry*);
     //virtual QRectF boundingRect() const;
     //virtual void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget = nullptr);
 };

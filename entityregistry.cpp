@@ -1,13 +1,13 @@
 #include "entityregistry.h"
 #include "mapentity.h"
 
-void EntityContainer::add(MapEntity* sn)
+void EntityRegistry::add(MapEntity* sn)
 {
     elements.insert(sn);
     sn->insertManager(this);
 }
 
-void EntityContainer::remove(MapEntity* sn)
+void EntityRegistry::remove(MapEntity* sn)
 {
     auto cit = std::find_if(elements.begin(),elements.end(), [sn](auto& r){ return sn == r; } );
     if(cit != elements.end())
@@ -16,17 +16,17 @@ void EntityContainer::remove(MapEntity* sn)
     }
 }
 
-const std::unordered_set<MapEntity*>& EntityContainer::getElements()
+const std::unordered_set<MapEntity*>& EntityRegistry::getElements()
 {
     return elements;
 }
 
-EntityContainer::~EntityContainer()
+EntityRegistry::~EntityRegistry()
 {
     for(auto& sn : elements)
     {
-        qDebug() << "removing entity from container";
+        //qDebug() << "removing entity from container";
         sn->eraseManager(this);
-        qDebug() << "entity removed";
+        //qDebug() << "entity removed";
     }
 }

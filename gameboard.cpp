@@ -1,22 +1,26 @@
 #include "gameboard.h"
 #include <QBrush>
+#include "gameboardbuilder.h"
 
 GameBoard::GameBoard(QWidget *parentView)
-    : QGraphicsScene(parentView)
+    : QGraphicsScene(parentView), playerFightManager(this)
 {
     qDebug()<<"Creating game board";
 
-    playerFightManager.pGB=this;
-
     background = new Background(this);
 
-    createPlayer();
+    //createPlayer();
 
-    createBots();
+    //createBot();
 
-    createWalls();
+    //createWall(QPointF(-100,-100),QRectF(0,0,100,100));
 
-    setUpViewRect();
+    //setUpViewRect();
+}
+
+GameBoardBuilder GameBoard::create(QWidget* pV)
+{
+    return GameBoardBuilder(pV);
 }
 
 void GameBoard::doStep()
@@ -33,7 +37,7 @@ void GameBoard::doStep()
     actualizeSceneRect();
 }
 
-void GameBoard::createPlayer()
+Player* GameBoard::createPlayer()
 {
     player = new Player(this);
     creatures.push_back(player);
@@ -41,40 +45,44 @@ void GameBoard::createPlayer()
     //contactManager.addMovable(player);
     nonPenetrationManager.mmovables.add(player);
     playerFightManager.setPlayer(player);
+
+    return player;
 }
 
-void GameBoard::createBots()
+Bot* GameBoard::createBot()
 {
-    for (int i=0;i<5;i++)
-    {
-        creatures.push_back(new Bot(this));
-        //contactManager.addMovable(*(creatures.end()-1));
-        nonPenetrationManager.mmovables.add(*(creatures.end()-1));
-        //playerFightManager.addMovable(*(creatures.end()-1));
-        playerFightManager.mmovables.add(*(creatures.end()-1));
-    }
+    //for (int i=0;i<5;i++)
+    //{
+    creatures.push_back(new Bot(this));
+    //contactManager.addMovable(*(creatures.end()-1));
+    nonPenetrationManager.mmovables.add(*(creatures.end()-1));
+    //playerFightManager.addMovable(*(creatures.end()-1));
+    playerFightManager.mmovables.add(*(creatures.end()-1));
+    //}
+    return (Bot*)*creatures.end();
 }
 
-void GameBoard::createWalls()
+NonPenetratingWall* GameBoard::createWall(QPointF qpf = QPointF(-100,-100), QRectF qrf = QRectF(0,0,100,100))
 {
     // temporary
-    fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1000)) );
-    (*(fixedObjects.end()-1))->setPos(-200,-200);
-    //contactManager.addStable(*(fixedObjects.end()-1));
+    fixedObjects.push_back( new NonPenetratingWall(this, qrf) );
+    (*(fixedObjects.end()-1))->setPos(qpf);
     nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
-    fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1000,100)) );
-    (*(fixedObjects.end()-1))->setPos(-200,-200);
-    // contactManager.addStable(*(fixedObjects.end()-1));
-    nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
-    fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1200)) );
-    (*(fixedObjects.end()-1))->setPos(800,-200);
-    (*(fixedObjects.end()-1))->setRotation(30);
-    // contactManager.addStable(*(fixedObjects.end()-1));
-    nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
-    fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1200,100)) );
-    (*(fixedObjects.end()-1))->setPos(-200,800);
-    // contactManager.addStable(*(fixedObjects.end()-1));
-    nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
+    // fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1000,100)) );
+    // (*(fixedObjects.end()-1))->setPos(-200,-200);
+    // // contactManager.addStable(*(fixedObjects.end()-1));
+    // nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
+    // fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,100,1200)) );
+    // (*(fixedObjects.end()-1))->setPos(800,-200);
+    // (*(fixedObjects.end()-1))->setRotation(30);
+    // // contactManager.addStable(*(fixedObjects.end()-1));
+    // nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
+    // fixedObjects.push_back( new NonPenetratingWall(this, QRectF(0,0,1200,100)) );
+    // (*(fixedObjects.end()-1))->setPos(-200,800);
+    // // contactManager.addStable(*(fixedObjects.end()-1));
+    // nonPenetrationManager.mstables.add(*(fixedObjects.end()-1));
+
+    return *fixedObjects.end();
 }
 
 void GameBoard::setUpViewRect()

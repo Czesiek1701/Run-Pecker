@@ -1,7 +1,9 @@
 #include "playerfightmanager.h"
 #include "gameboard.h"
 
-PlayerFightManager::PlayerFightManager() {}
+PlayerFightManager::PlayerFightManager(GameBoard* plGB)
+    :pGB(plGB)
+{}
 
 void PlayerFightManager::handle()
 {

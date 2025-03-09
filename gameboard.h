@@ -13,6 +13,8 @@
 #include "nonpenetrationmanager.h"
 #include "playerfightmanager.h"
 
+class GameBoardBuilder;
+
 class GameBoard : public QGraphicsScene
 {
     Q_OBJECT
@@ -27,9 +29,9 @@ class GameBoard : public QGraphicsScene
     std::vector<Creature*> creatures;
     std::vector<NonPenetratingWall*> fixedObjects;
 
-    void createPlayer();
-    void createWalls();
-    void createBots();
+    Player* createPlayer();
+    NonPenetratingWall* createWall(QPointF qpf, QRectF qrf);
+    Bot* createBot();
     void setUpViewRect();
 
 
@@ -37,10 +39,12 @@ public:
     GameBoard(QWidget* parentView);
     ~GameBoard() {}
 
-    Player *player;
+    Player *player=nullptr;
     void removeCreature(MapEntity*);
     void actualizeSceneRect();
 
+    friend class GameBoardBuilder;
+    static GameBoardBuilder create(QWidget* pV);
 
 public slots:
     void doStep();

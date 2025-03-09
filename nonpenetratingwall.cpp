@@ -6,7 +6,7 @@ NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene)
 {
     this->setObjectName("wall");
 
-    qDebug() << "Creating NonPenWall";
+    //qDebug() << "Creating NonPenWall";
     qRectF = QRectF(0,0,300,300);
     this->setRotation(30);
     //graphicsItemGroup -> addToGroup(qgRectItem);
@@ -20,7 +20,7 @@ NonPenetratingWall::NonPenetratingWall(QGraphicsScene * scene, QRectF qrf)
 {
     this->setObjectName("wall");
 
-    qDebug() << "Creating NonPenWall";
+    //qDebug() << "Creating NonPenWall";
     qRectF = qrf;
     //this->setRotation(qRectF.width()*2+qRectF.height()*3);
 }

@@ -4,11 +4,11 @@
 Creature::Creature(QGraphicsScene * scene)
     :MapEntity(scene)
 {
-    qDebug() << "Creating creature";
+    //qDebug() << "Creating creature";
 }
 Creature::~Creature()
 {
-    qDebug() << "Deleting creature.";
+    //qDebug() << "Deleting creature.";
 }
 
 QRectF Creature::boundingRect() const

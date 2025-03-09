@@ -18,8 +18,8 @@ public:
     NonPenetrationManager();
     //virtual ~NonPenetrationManager();
 
-    EntityContainer mmovables;
-    EntityContainer mstables;
+    EntityRegistry mmovables;
+    EntityRegistry mstables;
 
     //std::vector<Creature*> movables;
     //std::vector<NonPenetratingWall*> stables;
